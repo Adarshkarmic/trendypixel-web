@@ -1,3 +1,11 @@
+/* --- PREMIUM ROYAL THEME --- */
+:root {
+    --bg-dark: #0f0c29;
+    --purple-glow: #302b63;
+    --gold: #D4AF37; /* Premium Golden */
+    --gold-bright: #FFD700;
+    --glass: rgba(255, 255, 255, 0.03);
+}
 
 * {
     margin: 0;
@@ -7,21 +15,14 @@
 }
 
 body {
-    /* Tumhara original dark gradient background */
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    color: white;
+    /* Deep Purple Gradient for Luxury Feel */
+    background: radial-gradient(circle at center, var(--purple-glow), var(--bg-dark));
+    color: #f0f0f0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-}
-
-.container {
-    width: 90%;
-    max-width: 1000px;
-    text-align: center;
-    padding-top: 120px; /* Header ke liye jagah */
 }
 
 /* --- NAVIGATION --- */
@@ -30,147 +31,155 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 5%;
+    padding: 20px 8%;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 1000;
-    background: rgba(15, 28, 41, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(15, 12, 41, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); /* Golden Border */
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 35px;
 }
 
 .nav-links a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
+    letter-spacing: 1px;
 }
 
 .nav-links a:hover {
-    color: #00d2ff;
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold);
 }
 
 /* --- LOGO --- */
 .logo {
-    font-size: 2.8rem;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-header {
-    margin-top: 60px; /* Hamburger se door rakhne ke liye */
-    margin-bottom: 40px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #fff;
 }
 
 .logo span {
-    color: #00d2ff;
+    color: var(--gold);
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
-/* --- GLASS CARD (Insane Look) --- */
+.tagline {
+    font-size: 0.9rem;
+    color: var(--gold);
+    opacity: 0.8;
+    margin-top: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- HERO SECTION --- */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    padding-top: 140px; /* Space for Fixed Nav */
+    text-align: center;
+}
+
 .glass-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    margin-bottom: 30px;
-    transition: 0.4s ease;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 50px 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-    transform: translateY(-10px); /* Hover effect for interactive feel */
-    border: 1px solid #00d2ff;
+    transform: translateY(-15px) scale(1.02);
+    border: 1px solid var(--gold);
+    box-shadow: 0 30px 60px rgba(212, 175, 55, 0.1);
 }
 
 /* --- BUTTONS --- */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
-    border-radius: 30px;
+    padding: 15px 40px;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-    margin: 10px;
-    cursor: pointer;
+    font-weight: 700;
+    transition: 0.4s;
+    margin: 15px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .primary {
-    background: #00d2ff;
-    color: #0f0c29;
+    background: linear-gradient(45deg, var(--gold), #f3cf65);
+    color: #000;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
 }
 
 .primary:hover {
-    background: #91eaff;
-    transform: translateY(-3px);
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5);
 }
 
 .secondary {
-    border: 1px solid white;
-    color: white;
+    border: 1px solid var(--gold);
+    color: var(--gold);
 }
 
 .secondary:hover {
-    background: white;
-    color: #0f0c29;
+    background: var(--gold);
+    color: #000;
 }
 
-/* --- HAMBURGER MENU (Fixed) --- */
+/* --- HAMBURGER --- */
 .hamburger {
     display: none;
     cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    z-index: 9999; /* Sabse upar dikhne ke liye */
+    z-index: 9999;
 }
 
 .hamburger span {
     width: 30px;
     height: 3px;
-    background-color: #00d2ff;
+    background-color: var(--gold);
+    margin: 5px 0;
     border-radius: 10px;
     transition: 0.3s;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
+    .hamburger { display: block; }
+    
     .nav-links {
-        display: none; /* Mobile par hide rahenge */
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: rgba(15, 28, 41, 0.95);
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background: rgba(15, 12, 41, 0.98);
         flex-direction: column;
-        padding: 20px;
-        border-radius: 15px;
-        border: 1px solid rgba(255,255,255,0.1);
-        width: 200px;
-        text-align: center;
+        justify-content: center;
+        border-left: 1px solid var(--gold);
     }
 
-    .nav-links.active {
-        display: flex;
-        animation: slideIn 0.3s ease-out;
-    }
-}
-
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    .nav-links.active { display: flex; }
 }
 
 footer {
-    margin-top: 50px;
+    margin-top: auto;
+    padding: 40px;
     font-size: 0.8rem;
+    color: var(--gold);
     opacity: 0.6;
 }
