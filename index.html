@@ -18,9 +18,7 @@
                     <li><a href="https://trendypixel.gumroad.com" target="_blank">Shop</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </div>
             </nav>
             <p class="tagline">High-Quality AI Arts & Digital Assets</p>
@@ -44,13 +42,13 @@
             </div>
             
             <div class="features-grid">
-                <div class="glass-card feature-card">
+                <div class="glass-card feature-card" id="f1">
                     <div class="feature-icon">✨</div>
                     <h4>AI Mastery</h4>
                     <p>Crafted using advanced models like Adobe Firefly and Leonardo AI for unmatched detail.</p>
                 </div>
                 
-                <div class="glass-card feature-card">
+                <div class="glass-card feature-card" id="f2">
                     <div class="feature-icon">💎</div>
                     <h4>Premium Polish</h4>
                     <p>Every piece is manually refined to ensure high-resolution quality for professional use.</p>
@@ -67,30 +65,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        // Hamburger Menu Logic
+        // Hamburger Menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            hamburger.classList.toggle('toggle');
         });
 
-        // GSAP Animations
+        // GSAP Registration
         gsap.registerPlugin(ScrollTrigger);
 
-        gsap.from(".glass-card", {
-            scrollTrigger: {
-                trigger: ".glass-card",
-                start: "top 90%",
-                toggleActions: "play none none reverse"
-            },
-            y: 100,
-            opacity: 0,
+        // Hero Card Animation
+        gsap.from(".hero .glass-card", {
             duration: 1.2,
-            stagger: 0.2,
-            ease: "power3.out"
+            y: 50,
+            opacity: 0,
+            ease: "back.out(1.7)"
         });
+
+        // Feature Cards Animation (Fixed side-by-side issue)
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".features-grid",
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        // Left box (f1) slides from left, Right box (f2) slides from right
+        timeline.from("#f1", { x: -60, opacity: 0, duration: 1 })
+                .from("#f2", { x: 60, opacity: 0, duration: 1 }, "-=0.7");
     </script>
 </body>
 </html>
