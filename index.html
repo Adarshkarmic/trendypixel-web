@@ -20,11 +20,10 @@
                     <span></span><span></span><span></span>
                 </div>
             </nav>
-            <p class="tagline">High-Quality AI Arts & Digital Assets</p>
         </header>
 
         <section class="hero">
-            <div class="glass-card">
+            <div class="hero-card">
                 <h2>The 40K Collection</h2>
                 <p>Explore unique, single-edition digital arts designed for the modern aesthetic.</p>
                 <div class="buttons">
@@ -35,31 +34,40 @@
         </section>
 
         <section id="about" class="info-section">
+            <p style="color: var(--gold); letter-spacing: 3px; font-weight: 700; margin-bottom: 10px;">EXCELLENCE IN EVERY PIXEL</p>
+            <h3 style="font-size: 2rem; margin-bottom: 40px;">Why Trendy Pixel?</h3>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h4>✨ AI Mastery</h4>
-                    <p>Crafted using advanced models for unmatched detail.</p>
+                    <div class="feature-icon">✨</div>
+                    <h4>AI Mastery</h4>
+                    <p>Crafted using advanced models like Adobe Firefly and Leonardo AI for unmatched detail.</p>
                 </div>
                 <div class="feature-card">
-                    <h4>💎 Premium Polish</h4>
-                    <p>Every piece is manually refined for professional use.</p>
+                    <div class="feature-icon">💎</div>
+                    <h4>Premium Polish</h4>
+                    <p>Every piece is manually refined to ensure high-resolution quality for professional use.</p>
                 </div>
             </div>
         </section>
+
+        <footer>
+            <p>© 2026 Trendy Pixel | Built with ❤️ and Code</p>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        // Hamburger
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // GSAP Safe Animation
         gsap.registerPlugin(ScrollTrigger);
 
+        // Cards Load Animation
+        gsap.from(".hero-card", { duration: 1.2, y: 50, opacity: 0, ease: "power3.out" });
+        
         gsap.from(".feature-card", {
             scrollTrigger: {
                 trigger: ".features-grid",
@@ -68,9 +76,9 @@
             },
             duration: 1,
             opacity: 0,
-            scale: 0.95, // Halki scaling premium lagti hai
+            scale: 0.9,
             stagger: 0.2,
-            ease: "power2.out"
+            ease: "back.out(1.7)"
         });
     </script>
 </body>

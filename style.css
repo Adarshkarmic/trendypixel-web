@@ -1,9 +1,9 @@
-/* --- PREMIUM ROYAL THEME (STABLE & BUG-FREE) --- */
+/* --- PREMIUM ROYAL THEME (STABLE & COMPLETE) --- */
 :root {
     --bg-dark: #0f0c29;
     --purple-glow: #302b63;
     --gold: #D4AF37;
-    --glass: rgba(255, 255, 255, 0.04);
+    --glass: rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -36,69 +36,63 @@ nav {
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { color: #fff; text-decoration: none; font-weight: 500; }
+.nav-links a:hover { color: var(--gold); }
 
 /* --- LOGO --- */
-.logo {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
+.logo { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
 .logo span { color: var(--gold); }
 
 /* --- CONTAINER --- */
 .container {
-    width: 90%;
-    max-width: 1000px;
+    width: 95%;
+    max-width: 1100px;
     margin: 0 auto;
-    padding-top: 140px;
+    padding-top: 150px;
     text-align: center;
 }
 
-/* --- FEATURE GRID (PC Visibility Fix) --- */
+/* --- HERO CARD (WAPAS AA GAYA) --- */
+.hero-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 60px 30px;
+    border-radius: 30px;
+    margin-bottom: 60px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+h2 { font-size: 2.5rem; margin-bottom: 20px; color: #fff; }
+.hero-card p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
+
+/* --- FEATURE GRID --- */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* PC par hamesha 2 boxes side-by-side */
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin-top: 40px;
-    width: 100%;
-    overflow: visible; /* Gayab hone se rokne ke liye */
+    margin-top: 50px;
 }
 
 .feature-card {
-    padding: 40px 30px;
-    text-align: left;
-    border-top: 2px solid rgba(212, 175, 55, 0.2);
     background: var(--glass);
     backdrop-filter: blur(15px);
-    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: left;
+    transition: 0.4s;
 }
 
-/* --- MOBILE VIEW --- */
-@media (max-width: 768px) {
-    .features-grid {
-        grid-template-columns: 1fr; /* Mobile par stack honge */
-    }
-    .hamburger { display: flex; }
-    .nav-links { display: none; }
-}
+.feature-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+.feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.feature-card h4 { color: var(--gold); font-size: 1.4rem; margin-bottom: 10px; }
 
-/* --- BAKI STYLES (Buttons, etc.) --- */
+/* --- BUTTONS --- */
 .btn {
     display: inline-block;
-    padding: 14px 35px;
+    padding: 15px 40px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
@@ -108,5 +102,15 @@ nav {
 .primary { background: var(--gold); color: #000; }
 .secondary { border: 1px solid var(--gold); color: var(--gold); }
 
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    h2 { font-size: 1.8rem; }
+}
+
 .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
 .hamburger span { width: 28px; height: 3px; background: var(--gold); border-radius: 5px; }
+
+footer { padding: 60px 0; opacity: 0.5; color: var(--gold); font-size: 0.8rem; }
