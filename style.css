@@ -1,4 +1,4 @@
-/* --- RESET & BASE --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +21,7 @@ body {
     width: 90%;
     max-width: 1000px;
     text-align: center;
-    padding-top: 80px; /* Header ke liye jagah */
+    padding-top: 120px; /* Header ke liye jagah */
 }
 
 /* --- NAVIGATION --- */
@@ -30,7 +30,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 30px 5%;
     position: fixed;
     top: 0;
     left: 0;
@@ -58,8 +58,14 @@ nav {
 
 /* --- LOGO --- */
 .logo {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+header {
+    margin-top: 60px; /* Hamburger se door rakhne ke liye */
+    margin-bottom: 40px;
 }
 
 .logo span {
