@@ -9,40 +9,37 @@
 </head>
 
 
-// 1. Hamburger Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+<script>
+    // 1. Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    // Hamburger icon animation (optional)
-    hamburger.classList.toggle('toggle');
-});
-
-// 2. Unique Seller ID Generator for Affiliates
-function generateSellerID() {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let id = 'TP-'; // Trendy Pixel Prefix
-    for (let i = 0; i < 6; i++) {
-        id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
-}
-
-// 3. Form Submission Logic
-const affiliateForm = document.querySelector('.license-form');
-if(affiliateForm) {
-    affiliateForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const sellerID = generateSellerID();
-        const userName = affiliateForm.querySelector('input[type="text"]').value;
-        
-        alert(`Congratulations ${userName}! Aapka Unique Seller ID hai: ${sellerID}. 
-        Ek official license certificate aapke email par bhej diya jayega.`);
-        
-        // Yahan hum future mein EmailJS connect karenge
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('toggle');
     });
-}
+
+    // 2. Unique Seller ID Generator for Affiliates
+    function generateSellerID() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let id = 'TP-'; 
+        for (let i = 0; i < 6; i++) {
+            id += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return id;
+    }
+
+    // 3. Form Submission Logic
+    const affiliateForm = document.querySelector('.license-form');
+    if(affiliateForm) {
+        affiliateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const sellerID = generateSellerID();
+            const userName = affiliateForm.querySelector('input[type="text"]').value;
+            alert(`Congratulations ${userName}! Aapka Unique Seller ID hai: ${sellerID}.`);
+        });
+    }
+</script>
 
 <body>
     <div class="container">
