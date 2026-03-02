@@ -1,4 +1,4 @@
-/* --- TUMHARA ORIGINAL CODE (Retained) --- */
+/* --- RESET & BASE --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +7,12 @@
 }
 
 body {
+    /* Tumhara original dark gradient background */
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Sections ko stack karne ke liye */
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     overflow-x: hidden;
 }
@@ -21,10 +21,44 @@ body {
     width: 90%;
     max-width: 1000px;
     text-align: center;
+    padding-top: 80px; /* Header ke liye jagah */
 }
 
+/* --- NAVIGATION --- */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(15, 28, 41, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00d2ff;
+}
+
+/* --- LOGO --- */
 .logo {
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: 2px;
 }
 
@@ -32,6 +66,7 @@ body {
     color: #00d2ff;
 }
 
+/* --- GLASS CARD (Insane Look) --- */
 .glass-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -40,15 +75,15 @@ body {
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     margin-bottom: 30px;
-    transition: 0.4s ease; /* Hover effect ke liye */
+    transition: 0.4s ease;
 }
 
-/* Hover effect for interactive feel */
 .glass-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px); /* Hover effect for interactive feel */
     border: 1px solid #00d2ff;
 }
 
+/* --- BUTTONS --- */
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -75,47 +110,36 @@ body {
     color: white;
 }
 
-/* --- NEW: LICENSE CARD STYLES (Insane Level) --- */
-.license-card {
-    background: linear-gradient(145deg, rgba(0, 210, 255, 0.15), rgba(255, 255, 255, 0.05));
-    border: 2px solid rgba(0, 210, 255, 0.3);
-    max-width: 450px;
-    margin: 40px auto;
-    text-align: left;
-    position: relative;
-}
-
-.id-badge {
-    background: #00d2ff;
+.secondary:hover {
+    background: white;
     color: #0f0c29;
-    padding: 4px 12px;
-    border-radius: 6px;
-    font-weight: 800;
-    font-family: 'Courier New', monospace;
-    display: inline-block;
-    margin-left: 10px;
 }
 
-.active-dot {
-    height: 12px;
-    width: 12px;
-    background: #00ff88;
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 15px #00ff88;
-    margin-right: 8px;
+/* --- HAMBURGER MENU (Fixed) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 9999; /* Sabse upar dikhne ke liye */
 }
 
-/* --- GSAP ANIMATION CLASSES --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #00d2ff;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
-/* --- MEDIA QUERIES (Retained & Fixed) --- */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     .nav-links {
-        display: none;
+        display: none; /* Mobile par hide rahenge */
         position: absolute;
         top: 70px;
         right: 20px;
@@ -132,32 +156,15 @@ body {
         display: flex;
         animation: slideIn 0.3s ease-out;
     }
-
-    .hamburger {
-        display: flex;
-    }
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    z-index: 1001;
-    position: fixed; /* Taaki scroll pe bhi dikhe */
-    top: 20px;
-    right: 20px;
-}
-
-.hamburger span {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    border-radius: 10px;
-    transition: 0.3s;
 }
 
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
