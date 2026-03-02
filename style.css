@@ -1,3 +1,4 @@
+/* --- TUMHARA ORIGINAL CODE (Retained) --- */
 * {
     margin: 0;
     padding: 0;
@@ -10,18 +11,16 @@ body {
     color: white;
     min-height: 100vh;
     display: flex;
+    flex-direction: column; /* Sections ko stack karne ke liye */
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .container {
     width: 90%;
     max-width: 1000px;
     text-align: center;
-}
-
-header {
-    margin-bottom: 50px;
 }
 
 .logo {
@@ -41,11 +40,13 @@ header {
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     margin-bottom: 30px;
+    transition: 0.4s ease; /* Hover effect ke liye */
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+/* Hover effect for interactive feel */
+.glass-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid #00d2ff;
 }
 
 .btn {
@@ -56,6 +57,7 @@ h2 {
     font-weight: bold;
     transition: 0.3s;
     margin: 10px;
+    cursor: pointer;
 }
 
 .primary {
@@ -73,19 +75,44 @@ h2 {
     color: white;
 }
 
-.secondary:hover {
-    background: white;
+/* --- NEW: LICENSE CARD STYLES (Insane Level) --- */
+.license-card {
+    background: linear-gradient(145deg, rgba(0, 210, 255, 0.15), rgba(255, 255, 255, 0.05));
+    border: 2px solid rgba(0, 210, 255, 0.3);
+    max-width: 450px;
+    margin: 40px auto;
+    text-align: left;
+    position: relative;
+}
+
+.id-badge {
+    background: #00d2ff;
     color: #0f0c29;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-family: 'Courier New', monospace;
+    display: inline-block;
+    margin-left: 10px;
 }
 
-footer {
-    margin-top: 50px;
-    font-size: 0.8rem;
-    opacity: 0.6;
+.active-dot {
+    height: 12px;
+    width: 12px;
+    background: #00ff88;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 15px #00ff88;
+    margin-right: 8px;
 }
 
+/* --- GSAP ANIMATION CLASSES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+}
 
-
+/* --- MEDIA QUERIES (Retained & Fixed) --- */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -105,23 +132,21 @@ footer {
         display: flex;
         animation: slideIn 0.3s ease-out;
     }
+
+    .hamburger {
+        display: flex;
+    }
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-
-
-/* Hamburger Design */
 .hamburger {
-    display: none; /* Desktop par chhupa rahega */
+    display: none;
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
     z-index: 1001;
+    position: fixed; /* Taaki scroll pe bhi dikhe */
+    top: 20px;
+    right: 20px;
 }
 
 .hamburger span {
@@ -132,9 +157,7 @@ footer {
     transition: 0.3s;
 }
 
-/* Mobile View par Hamburger dikhao */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
