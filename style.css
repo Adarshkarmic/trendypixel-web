@@ -1,4 +1,4 @@
-/* --- PREMIUM ROYAL THEME (STABLE & COMPLETE) --- */
+/* --- PREMIUM ROYAL THEME (PURE CSS) --- */
 :root {
     --bg-dark: #0f0c29;
     --purple-glow: #302b63;
@@ -15,102 +15,98 @@
 
 body {
     background: radial-gradient(circle at center, var(--purple-glow), var(--bg-dark));
-    color: #f0f0f0;
-    min-height: 100vh;
+    color: #fff;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
 /* --- NAVIGATION --- */
 nav {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
     background: rgba(15, 12, 41, 0.9);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { color: #fff; text-decoration: none; font-weight: 500; }
-.nav-links a:hover { color: var(--gold); }
-
-/* --- LOGO --- */
-.logo { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
+.logo { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; }
 .logo span { color: var(--gold); }
 
-/* --- CONTAINER --- */
-.container {
-    width: 95%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding-top: 150px;
-    text-align: center;
+/* --- PAGE SECTIONS --- */
+.page-section {
+    min-height: 100vh;
+    padding: 120px 8% 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* --- HERO CARD (WAPAS AA GAYA) --- */
-.hero-card {
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 60px 30px;
-    border-radius: 30px;
-    margin-bottom: 60px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-h2 { font-size: 2.5rem; margin-bottom: 20px; color: #fff; }
-.hero-card p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
-
-/* --- FEATURE GRID --- */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+/* --- PAGE 2: AFFILIATE 60/40 SPLIT --- */
+.affiliate-wrapper {
+    display: flex;
     gap: 30px;
-    margin-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 40px;
 }
 
-.feature-card {
+.form-side {
+    flex: 0 0 60%; /* 60% Space for Form */
     background: var(--glass);
-    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
     border: 1px solid rgba(212, 175, 55, 0.1);
-    padding: 40px 30px;
-    border-radius: 25px;
-    text-align: left;
-    transition: 0.4s;
+    backdrop-filter: blur(15px);
 }
 
-.feature-card:hover { border-color: var(--gold); transform: translateY(-10px); }
-.feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
-.feature-card h4 { color: var(--gold); font-size: 1.4rem; margin-bottom: 10px; }
+.leaderboard-side {
+    flex: 0 0 40%; /* 40% Space for Leaderboard */
+    background: var(--glass);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(15px);
+}
 
-/* --- BUTTONS --- */
+/* --- BUTTONS & INPUTS --- */
 .btn {
-    display: inline-block;
-    padding: 15px 40px;
+    padding: 12px 30px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    margin: 10px;
     transition: 0.3s;
+    cursor: pointer;
+    border: none;
 }
+
 .primary { background: var(--gold); color: #000; }
-.secondary { border: 1px solid var(--gold); color: var(--gold); }
+.secondary { border: 1px solid var(--gold); color: var(--gold); background: transparent; }
 
-/* --- MOBILE --- */
-@media (max-width: 768px) {
-    .features-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    h2 { font-size: 1.8rem; }
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    color: #fff;
 }
 
-.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
-.hamburger span { width: 28px; height: 3px; background: var(--gold); border-radius: 5px; }
+/* --- LICENSE CARD ANIMATION --- */
+.license-card {
+    margin-top: 30px;
+    padding: 25px;
+    border: 2px dashed var(--gold);
+    border-radius: 15px;
+    background: rgba(212, 175, 55, 0.05);
+}
 
-footer { padding: 60px 0; opacity: 0.5; color: var(--gold); font-size: 0.8rem; }
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .affiliate-wrapper { flex-direction: column; }
+    .form-side, .leaderboard-side { flex: 0 0 100%; }
+}

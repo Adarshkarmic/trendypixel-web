@@ -3,82 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendy Pixel | Premium Digital Art</title>
+    <title>Trendy Pixel | Official Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <nav>
-                <h1 class="logo">TRENDY<span>PIXEL</span></h1>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="https://trendypixel.gumroad.com" target="_blank">Shop</a></li>
+
+    <nav>
+        <h1 class="logo">TRENDY<span>PIXEL</span></h1>
+        <div>
+            <a href="https://trendypixel.gumroad.com" class="btn secondary">Shop</a>
+            <a href="#affiliate" class="btn primary">Affiliate</a>
+        </div>
+    </nav>
+
+    <section id="home" class="page-section">
+        <div style="text-align: center; margin-top: 100px;">
+            <p style="color: var(--gold); letter-spacing: 4px;">PREMIUM DIGITAL ASSETS</p>
+            <h2 style="font-size: 3.5rem; margin: 20px 0;">The 40K Collection</h2>
+            <p style="max-width: 600px; opacity: 0.8;">Excellence in every pixel. Hand-refined art for creators.</p>
+        </div>
+    </section>
+
+    <section id="affiliate" class="page-section">
+        <h3 style="color: var(--gold); font-size: 2rem;">Affiliate Programme (25-45% Commission)</h3>
+        <div class="affiliate-wrapper">
+            <div class="form-side">
+                <h4>Join the Royal Network</h4>
+                <p style="margin-bottom: 20px; opacity: 0.7;">Fill details to get your unique license ID.</p>
+                <form id="licenseForm">
+                    <input type="text" id="userName" placeholder="Full Name" required>
+                    <input type="email" id="userEmail" placeholder="Email Address" required>
+                    <button type="submit" class="btn primary" style="width: 100%;">Get License & Start Selling</button>
+                </form>
+
+                <div id="licenseView" class="license-card" style="display:none;">
+                    <h5 style="color: var(--gold); letter-spacing: 2px;">OFFICIAL AUTHORIZED LICENSE</h5>
+                    <p style="margin: 10px 0;">ID: <span id="idDisplay" style="color: var(--gold); font-weight: bold;"></span></p>
+                    <p>HOLDER: <span id="nameDisplay"></span></p>
+                </div>
+            </div>
+
+            <div class="leaderboard-side">
+                <h4 style="margin-bottom: 20px;">Top Sellers</h4>
+                <ul style="list-style: none;">
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">1. Rahul K. - 45 Sales</li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">2. Priya S. - 32 Sales</li>
+                    <li style="padding: 10px 0;">3. Adarsh S. - 28 Sales</li>
                 </ul>
-                <div class="hamburger" id="hamburger">
-                    <span></span><span></span><span></span>
-                </div>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <div class="hero-card">
-                <h2>The 40K Collection</h2>
-                <p>Explore unique, single-edition digital arts designed for the modern aesthetic.</p>
-                <div class="buttons">
-                    <a href="https://trendypixel.gumroad.com" class="btn primary">Browse Shop</a>
-                    <a href="#about" class="btn secondary">Learn More</a>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="info-section">
-            <p style="color: var(--gold); letter-spacing: 3px; font-weight: 700; margin-bottom: 10px;">EXCELLENCE IN EVERY PIXEL</p>
-            <h3 style="font-size: 2rem; margin-bottom: 40px;">Why Trendy Pixel?</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h4>AI Mastery</h4>
-                    <p>Crafted using advanced models like Adobe Firefly and Leonardo AI for unmatched detail.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💎</div>
-                    <h4>Premium Polish</h4>
-                    <p>Every piece is manually refined to ensure high-resolution quality for professional use.</p>
-                </div>
+    <section id="company" class="page-section" style="background: rgba(0,0,0,0.2);">
+        <div style="display: flex; gap: 50px; text-align: left; max-width: 1000px;">
+            <div style="flex: 1;">
+                <h4 style="color: var(--gold);">Our Vision</h4>
+                <p>Advanced AI models polished with human precision to pay off debts and build a 1Cr empire.</p>
             </div>
-        </section>
-
-        <footer>
-            <p>© 2026 Trendy Pixel | Built with ❤️ and Code</p>
-        </footer>
-    </div>
+            <div style="flex: 1;">
+                <h4 style="color: var(--gold);">Support</h4>
+                <p>Email: support@trendypixel.de</p>
+                <p>Direct Reseller Help Available 24/7</p>
+            </div>
+        </div>
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        document.getElementById('licenseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('userName').value;
+            const uniqueID = "TP-" + Math.floor(100000 + Math.random() * 900000);
 
-        gsap.registerPlugin(ScrollTrigger);
+            document.getElementById('nameDisplay').innerText = name;
+            document.getElementById('idDisplay').innerText = uniqueID;
+            document.getElementById('licenseView').style.display = 'block';
+            
+            gsap.from("#licenseView", { scale: 0.8, opacity: 0, duration: 1, ease: "back.out" });
 
-        // Cards Load Animation
-        gsap.from(".hero-card", { duration: 1.2, y: 50, opacity: 0, ease: "power3.out" });
-        
-        gsap.from(".feature-card", {
-            scrollTrigger: {
-                trigger: ".features-grid",
-                start: "top 85%",
-                toggleActions: "play none none reverse"
-            },
-            duration: 1,
-            opacity: 0,
-            scale: 0.9,
-            stagger: 0.2,
-            ease: "back.out(1.7)"
+            setTimeout(() => {
+                window.location.href = "https://trendypixel.gumroad.com/affiliates";
+            }, 4000);
         });
     </script>
 </body>
