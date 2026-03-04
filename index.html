@@ -17,53 +17,54 @@
         </div>
     </nav>
 
-    <section id="home" class="page-section hero-main">
-        <div class="hero-brand-container">
-            <div class="bezier-glow"></div>
-            <h1 class="bezier-logo">
-                TRENDY<span class="pixel-text">PIXEL</span>
-                <span class="sparkle">✦</span>
-            </h1>
-            <p class="brand-tagline">PREMIUM DIGITAL ASSETS</p>
-        </div>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-brand-container">
+                <div class="bezier-glow"></div>
+                <h1 class="main-title">
+                    TRENDY PIXEL
+                    <span class="sparkle">✦</span>
+                </h1>
+                <p class="brand-tagline">PREMIUM DIGITAL ASSETS</p>
+            </div>
 
-        <div class="collection-intro">
-            <h2 class="collection-title">The 40K Collection</h2>
-            <p class="collection-desc">Excellence in every pixel. Hand-refined art for creators.</p>
-        </div>
-    </section>
+            <div class="collection-intro">
+                <h2 class="collection-title">The 40K Collection</h2>
+                <p class="collection-desc">Excellence in every pixel. Hand-refined art for creators.</p>
+            </div>
+        </section>
 
-    <section id="affiliate" class="page-section">
-        <h3 class="section-heading">Affiliate Programme <span class="highlight">(25-45% Commission)</span></h3>
-        <div class="affiliate-wrapper">
-            <div class="form-side">
-                <h4>Join the Royal Network</h4>
-                <p style="margin-bottom: 20px; opacity: 0.7;">Fill details to get your unique license ID.</p>
-                <form id="licenseForm">
-                    <input type="text" id="userName" placeholder="Full Name" required>
-                    <input type="email" id="userEmail" placeholder="Email Address" required>
-                    <button type="submit" class="btn primary" style="width: 100%;">Get License & Start Selling</button>
-                </form>
+        <section id="affiliate" class="affiliate-section">
+            <h3 class="section-heading">Affiliate Programme <span class="highlight">(25-45% Commission)</span></h3>
+            <div class="affiliate-wrapper">
+                <div class="card form-side">
+                    <h4>Join the Royal Network</h4>
+                    <p class="sub-text">Fill details to get your unique license ID.</p>
+                    <form id="licenseForm">
+                        <input type="text" id="userName" placeholder="Full Name" required>
+                        <input type="email" id="userEmail" placeholder="Email Address" required>
+                        <button type="submit" class="btn primary full-width">Get License & Start Selling</button>
+                    </form>
+                    <div id="licenseView" class="license-card" style="display:none;">
+                        <h5>OFFICIAL AUTHORIZED LICENSE</h5>
+                        <p>ID: <span id="idDisplay" class="gold-id"></span></p>
+                        <p>HOLDER: <span id="nameDisplay"></span></p>
+                    </div>
+                </div>
 
-                <div id="licenseView" class="license-card" style="display:none;">
-                    <h5 style="color: var(--gold-primary); letter-spacing: 2px;">OFFICIAL AUTHORIZED LICENSE</h5>
-                    <p style="margin: 10px 0;">ID: <span id="idDisplay" style="color: var(--gold-primary); font-weight: bold;"></span></p>
-                    <p>HOLDER: <span id="nameDisplay"></span></p>
+                <div class="card leaderboard-side">
+                    <h4>Top Sellers</h4>
+                    <ul class="leader-list">
+                        <li>1. Rahul K. - 45 Sales</li>
+                        <li>2. Priya S. - 32 Sales</li>
+                        <li>3. Adarsh S. - 28 Sales</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="leaderboard-side">
-                <h4 style="margin-bottom: 20px;">Top Sellers</h4>
-                <ul class="leader-list">
-                    <li>1. Rahul K. - 45 Sales</li>
-                    <li>2. Priya S. - 32 Sales</li>
-                    <li>3. Adarsh S. - 28 Sales</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="company" class="page-section footer-section">
+    <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Our Vision</h4>
@@ -75,7 +76,7 @@
                 <p>Direct Reseller Help Available 24/7</p>
             </div>
         </div>
-    </section>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
@@ -87,9 +88,7 @@
             document.getElementById('idDisplay').innerText = uniqueID;
             document.getElementById('licenseView').style.display = 'block';
             gsap.from("#licenseView", { scale: 0.8, opacity: 0, duration: 1, ease: "back.out" });
-            setTimeout(() => {
-                window.location.href = "https://trendypixel.gumroad.com/affiliates";
-            }, 4000);
+            setTimeout(() => { window.location.href = "https://trendypixel.gumroad.com/affiliates"; }, 4000);
         });
     </script>
 </body>
