@@ -161,3 +161,14 @@ input:focus { border-color: var(--gold-2); background: rgba(0,0,0,0.7); box-shad
     .footer-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .brand-col p { margin: 15px auto 0; }
 }
+
+
+
+/* Custom Image for Mega Bundle */
+.empire-pack-img {
+    background-image: url('bundle-cover.jpg'); /* Yahan apni Gumroad wali cover image ka naam daalna */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
