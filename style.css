@@ -33,6 +33,50 @@ nav {
     z-index: 1000;
 }
 
+.hero-brand-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px; /* Space between logo and 40K card */
+    z-index: 10;
+}
+
+.bezier-logo {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 15px;
+    background: linear-gradient(45deg, #fff, var(--gold), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    animation: floating 4s ease-in-out infinite;
+}
+
+/* Bezier Glow Effect behind text */
+.bezier-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    background: var(--gold);
+    filter: blur(80px);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 50% 20% 50% 20%; /* Bezier-like shape */
+    animation: morph 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes morph {
+    0%, 100% { border-radius: 50% 20% 50% 20%; }
+    50% { border-radius: 20% 50% 20% 50%; }
+}
+
 .logo { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; }
 .logo span { color: var(--gold); }
 
