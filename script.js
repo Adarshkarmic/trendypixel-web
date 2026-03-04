@@ -66,7 +66,8 @@ updateTimer();
 if (window.innerWidth > 992) {
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
-    const links = document.querySelectorAll('a, button, input, .product-card, .step-card');
+    // Added .mockup-card here so cursor expands when hovering over mockups too
+    const links = document.querySelectorAll('a, button, input, .product-card, .step-card, .mockup-card');
 
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
