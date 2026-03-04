@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <nav>
@@ -85,13 +83,10 @@
             e.preventDefault();
             const name = document.getElementById('userName').value;
             const uniqueID = "TP-" + Math.floor(100000 + Math.random() * 900000);
-
             document.getElementById('nameDisplay').innerText = name;
             document.getElementById('idDisplay').innerText = uniqueID;
             document.getElementById('licenseView').style.display = 'block';
-
             gsap.from("#licenseView", { scale: 0.8, opacity: 0, duration: 1, ease: "back.out" });
-
             setTimeout(() => {
                 window.location.href = "https://trendypixel.gumroad.com/affiliates";
             }, 4000);
