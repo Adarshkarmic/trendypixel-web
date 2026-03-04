@@ -1,4 +1,4 @@
-/* GOD MODE 2.0 - TRENDY PIXEL */
+/* GOD MODE 2.0 - TRENDY PIXEL (FULL CSS) */
 :root {
     --bg: #020208;
     --gold-1: #F9E2AF;
@@ -16,8 +16,29 @@
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--white); overflow-x: hidden; line-height: 1.6; }
 
+/* VIOLET FLUID ANIMATION (GOD LEVEL) */
+.fluid-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; overflow: hidden; background: var(--bg); }
+.fluid-blob { position: absolute; filter: blur(90px); border-radius: 50%; animation: fluid-move 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1); opacity: 0.85; mix-blend-mode: screen; }
+.blob-1 { top: -10%; left: -10%; width: 55vw; height: 55vw; background: #5a189a; animation-delay: 0s; }
+.blob-2 { bottom: -20%; right: -10%; width: 65vw; height: 65vw; background: #9d50bb; animation-delay: -5s; }
+.blob-3 { top: 40%; left: 50%; width: 45vw; height: 45vw; background: rgba(0, 210, 255, 0.3); animation-delay: -10s; }
+
+@keyframes fluid-move {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(15vw, -15vh) scale(1.1) rotate(10deg); }
+    66% { transform: translate(-10vw, 20vh) scale(0.9) rotate(-10deg); }
+    100% { transform: translate(5vw, 5vh) scale(1.2) rotate(5deg); }
+}
+
+@media (max-width: 768px) {
+    .fluid-blob { filter: blur(80px); opacity: 0.5; }
+    .blob-1 { width: 80vw; height: 80vw; }
+    .blob-2 { width: 90vw; height: 90vw; }
+    .blob-3 { width: 70vw; height: 70vw; }
+}
+
 /* PARTICLES BG */
-#particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2; background: var(--bg); }
+#particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -2; background: transparent; }
 
 /* CUSTOM CURSOR */
 .cursor { width: 6px; height: 6px; background: var(--pixel-3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s; box-shadow: 0 0 15px var(--pixel-3); }
@@ -79,8 +100,15 @@ nav.scrolled { background: rgba(2, 2, 8, 0.9); border-bottom: 1px solid rgba(212
 .stat-divider { width: 1px; height: 50px; background: rgba(212, 175, 55, 0.3); align-self: center; }
 .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 
+/* ROADMAP (HOW IT WORKS) SECTION */
+.roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+.step-card { position: relative; padding: 40px 30px; text-align: center; border-top: 2px solid var(--pixel-1); overflow: hidden; }
+.step-number { font-size: 6rem; font-weight: 900; color: rgba(255, 255, 255, 0.03); position: absolute; top: -15px; left: 10px; z-index: 0; font-family: monospace; }
+.step-card h3 { font-size: 1.5rem; color: var(--gold-1); margin-bottom: 15px; position: relative; z-index: 1; }
+.step-card p { opacity: 0.8; font-size: 0.95rem; line-height: 1.6; position: relative; z-index: 1; }
+
 /* COMPANY VISION */
-.vision-container { display: flex; gap: 50px; align-items: center; }
+.vision-container { display: flex; gap: 50px; align-items: center; margin-top: 40px;}
 .vision-text { flex: 2; }
 .vision-text .lead-text { font-size: 1.3rem; font-weight: 600; color: var(--gold-1); margin-bottom: 20px; }
 .vision-text p { margin-bottom: 15px; opacity: 0.8; font-size: 1.05rem; }
@@ -92,10 +120,13 @@ nav.scrolled { background: rgba(2, 2, 8, 0.9); border-bottom: 1px solid rgba(212
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
 .product-card { padding: 20px; display: flex; flex-direction: column; gap: 20px; background: rgba(10, 10, 20, 0.6); }
 .product-img { width: 100%; aspect-ratio: 16/10; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transform: translateZ(30px); }
-.placeholder-1 { background: linear-gradient(45deg, #1a1a2e, #0f3460); }
+
+/* Custom Image for Mega Bundle */
+.empire-pack-img { background-image: url('bundle-cover.jpg'); background-size: cover; background-position: center; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .placeholder-2 { background: linear-gradient(45deg, #4b134f, #c94b4b); }
 .placeholder-3 { background: linear-gradient(45deg, #111, #444); }
 .placeholder-4 { background: linear-gradient(45deg, #0f2027, #203a43, #2c5364); }
+
 .product-info { display: flex; flex-direction: column; flex-grow: 1; transform: translateZ(20px); }
 .product-badge { align-self: flex-start; background: rgba(212, 175, 55, 0.2); color: var(--gold-1); padding: 5px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; margin-bottom: 15px; border: 1px solid rgba(212, 175, 55, 0.3); }
 .product-badge.blue { background: rgba(0, 210, 255, 0.15); color: var(--pixel-1); border-color: rgba(0, 210, 255, 0.3); }
@@ -160,84 +191,4 @@ input:focus { border-color: var(--gold-2); background: rgba(0,0,0,0.7); box-shad
     
     .footer-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .brand-col p { margin: 15px auto 0; }
-}
-
-
-
-/* Custom Image for Mega Bundle */
-.empire-pack-img {
-    background-image: url('bundle-cover.jpg'); /* Yahan apni Gumroad wali cover image ka naam daalna */
-    background-size: cover;
-    background-position: center;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-
-
-/* --- VIOLET FLUID ANIMATION (GOD LEVEL) --- */
-.fluid-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -3; /* Sabse peeche rahega */
-    overflow: hidden;
-    background: var(--bg); /* Dark background se merge hoga */
-}
-
-.fluid-blob {
-    position: absolute;
-    filter: blur(90px); /* Blur thoda kam kiya taaki color spread dikhe */
-    border-radius: 50%;
-    animation: fluid-move 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0.85; /* Opacity badha di taaki glow bright ho */
-    mix-blend-mode: screen; 
-}
-
-/* Violet / Purple Brush Blob */
-.blob-1 {
-    top: -10%; 
-    left: -10%;
-    width: 55vw; 
-    height: 55vw;
-    background: #5a189a; /* Deep Violet */
-    animation-delay: 0s;
-}
-
-/* Bright Purple / Magenta Blob */
-.blob-2 {
-    bottom: -20%; 
-    right: -10%;
-    width: 65vw; 
-    height: 65vw;
-    background: #9d50bb; /* Trendy Pixel Purple */
-    animation-delay: -5s;
-}
-
-/* Cyan/Teal accent (Logo se match karne ke liye) */
-.blob-3 {
-    top: 40%; 
-    left: 50%;
-    width: 45vw; 
-    height: 45vw;
-    background: rgba(0, 210, 255, 0.3); /* Soft Cyan */
-    animation-delay: -10s;
-}
-
-/* Fluid Morphing Movement */
-@keyframes fluid-move {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    33% { transform: translate(15vw, -15vh) scale(1.1) rotate(10deg); }
-    66% { transform: translate(-10vw, 20vh) scale(0.9) rotate(-10deg); }
-    100% { transform: translate(5vw, 5vh) scale(1.2) rotate(5deg); }
-}
-
-/* Mobile par blur thoda kam aur size adjust taaki lag na ho */
-@media (max-width: 768px) {
-    .fluid-blob { filter: blur(80px); opacity: 0.5; }
-    .blob-1 { width: 80vw; height: 80vw; }
-    .blob-2 { width: 90vw; height: 90vw; }
-    .blob-3 { width: 70vw; height: 70vw; }
 }

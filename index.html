@@ -9,14 +9,12 @@
 </head>
 <body>
 
-    <body>
     <div class="fluid-bg">
         <div class="fluid-blob blob-1"></div>
         <div class="fluid-blob blob-2"></div>
         <div class="fluid-blob blob-3"></div>
     </div>
 
-    <div id="particles-js"></div>
     <div id="particles-js"></div>
 
     <div class="cursor"></div>
@@ -27,9 +25,10 @@
             <h1 class="nav-logo">TRENDY<span>PIXEL</span></h1>
             
             <div class="nav-links desktop-only">
+                <a href="#how-it-works" class="btn-nav">Roadmap</a>
                 <a href="#company" class="btn-nav">Our Vision</a>
                 <a href="#products" class="btn-nav">Bundles</a>
-                <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-nav glow-text">Shop Now</a>
+                <a href="https://trendypixel.gumroad.com" target="_blank" data-gumroad-overlay-checkout="true" class="btn-nav glow-text">Shop Now</a>
                 <a href="#affiliate" class="btn-nav primary-gold">Join Affiliate</a>
             </div>
 
@@ -42,9 +41,10 @@
     </nav>
 
     <div class="mobile-menu">
+        <a href="#how-it-works" class="mobile-link">Roadmap</a>
         <a href="#company" class="mobile-link">Our Vision</a>
         <a href="#products" class="mobile-link">Bundles</a>
-        <a href="https://trendypixel.gumroad.com" target="_blank" class="mobile-link glow-text">Shop Now</a>
+        <a href="https://trendypixel.gumroad.com" target="_blank" data-gumroad-overlay-checkout="true" class="mobile-link glow-text">Shop Now</a>
         <a href="#affiliate" class="mobile-link primary-gold">Join Affiliate</a>
     </div>
 
@@ -68,8 +68,33 @@
                 </div>
                 
                 <div class="cta-group gsap-up" style="animation-delay: 0.3s;">
-                    <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold large-btn">Shop The Collection</a>
+                    <a href="https://trendypixel.gumroad.com/l/Trendy-Pixel-Empire-Pack" target="_blank" data-gumroad-overlay-checkout="true" class="btn-gold large-btn">Shop The Collection</a>
                     <a href="#affiliate" class="btn-outline large-btn">Start Earning Free</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="page-section">
+            <div class="section-header gsap-scroll">
+                <h2 class="section-title">Launch Your <span class="pixel-gradient">Business</span></h2>
+                <p class="section-subtitle">No design skills? No problem. Turn our assets into your profit in 3 simple steps.</p>
+            </div>
+            
+            <div class="roadmap-grid">
+                <div class="glass-card step-card tilt-card gsap-scroll">
+                    <div class="step-number">01</div>
+                    <h3>Download Assets</h3>
+                    <p>Get instant access to our 8K upscaled, commercial-ready artwork bundles right after checkout.</p>
+                </div>
+                <div class="glass-card step-card tilt-card gsap-scroll" style="transition-delay: 0.1s;">
+                    <div class="step-number">02</div>
+                    <h3>Upload & Apply</h3>
+                    <p>Place our designs on posters, apparel, or digital products using Printify, Etsy, or your local store.</p>
+                </div>
+                <div class="glass-card step-card tilt-card gsap-scroll" style="transition-delay: 0.2s;">
+                    <div class="step-number">03</div>
+                    <h3>Collect Profits</h3>
+                    <p>Start selling immediately. You keep 100% of the profits from your physical or modified digital product sales.</p>
                 </div>
             </div>
         </section>
@@ -97,15 +122,25 @@
             </div>
             
             <div class="product-grid">
-                <div class="glass-card product-card tilt-card gsap-scroll">
-                    <div class="product-img placeholder-1"></div>
-                    <div class="product-info">
-                        <span class="product-badge">BEST SELLER</span>
-                        <h3>The 40K Mega Collection</h3>
-                        <p>The ultimate arsenal for creators. High-retention visual assets across 10+ categories.</p>
-                        <div class="price-row">
-                            <span class="price">₹1,999</span>
-                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Shop Now</a>
+                <div class="glass-card product-card tilt-card gsap-scroll" style="grid-column: 1 / -1; display: flex; flex-direction: row; flex-wrap: wrap; gap: 30px; align-items: center;">
+                    <div class="product-img empire-pack-img" style="flex: 1; min-width: 300px; aspect-ratio: 16/10;"></div>
+                    <div class="product-info" style="flex: 1; min-width: 300px;">
+                        <span class="product-badge">⭐ BEST SELLER BUNDLE</span>
+                        <h3 style="font-size: 2rem; margin-top: 10px; color: var(--gold-1);">Trendy Pixel Empire Pack — 7-in-1 Wall Art Bundle</h3>
+                        <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 20px;">
+                            You'll get a 7-in-1 bundle with <strong>50+ premium 8K wall art designs</strong> plus a clear commercial license. Start listing more products on Etsy / POD stores without spending hours designing!
+                        </p>
+                        <ul style="list-style: none; margin-bottom: 30px; opacity: 0.9;">
+                            <li style="margin-bottom: 8px;">✅ High-resolution JPG/PNG files (300 DPI)</li>
+                            <li style="margin-bottom: 8px;">✅ Optimized for Canvas & Large Posters</li>
+                            <li style="margin-bottom: 8px;">✅ 100% Commercial Resell Rights</li>
+                        </ul>
+                        <div class="price-row" style="border-top: 1px solid rgba(212,175,55,0.2); padding-top: 25px;">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="text-decoration: line-through; color: #888; font-size: 1.2rem;">$36.93</span>
+                                <span class="price" style="font-size: 2.5rem; color: var(--pixel-3);">$9.99</span>
+                            </div>
+                            <a href="https://trendypixel.gumroad.com/l/Trendy-Pixel-Empire-Pack" target="_blank" data-gumroad-overlay-checkout="true" class="btn-gold" style="padding: 15px 40px; font-size: 1.1rem;">Buy Full Bundle</a>
                         </div>
                     </div>
                 </div>
@@ -149,32 +184,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="glass-card product-card tilt-card gsap-scroll" style="grid-column: 1 / -1; display: flex; flex-direction: row; flex-wrap: wrap; gap: 30px; align-items: center;">
-                    <div class="product-img empire-pack-img" style="flex: 1; min-width: 300px; aspect-ratio: 16/10;"></div>
-                    
-                    <div class="product-info" style="flex: 1; min-width: 300px;">
-                        <span class="product-badge">⭐ BEST SELLER BUNDLE</span>
-                        <h3 style="font-size: 2rem; margin-top: 10px; color: var(--gold-1);">Trendy Pixel Empire Pack — 7-in-1 Wall Art Bundle</h3>
-                        <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 20px;">
-                            You'll get a 7-in-1 bundle with <strong>50+ premium 8K wall art designs</strong> plus a clear commercial license. Start listing more products on Etsy / POD stores without spending hours designing!
-                        </p>
-                        
-                        <ul style="list-style: none; margin-bottom: 30px; opacity: 0.9;">
-                            <li style="margin-bottom: 8px;">✅ High-resolution JPG/PNG files (300 DPI)</li>
-                            <li style="margin-bottom: 8px;">✅ Optimized for Canvas & Large Posters</li>
-                            <li style="margin-bottom: 8px;">✅ 100% Commercial Resell Rights</li>
-                        </ul>
-
-                        <div class="price-row" style="border-top: 1px solid rgba(212,175,55,0.2); padding-top: 25px;">
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="text-decoration: line-through; color: #888; font-size: 1.2rem;">$36.93</span>
-                                <span class="price" style="font-size: 2.5rem; color: var(--pixel-3);">$9.99</span>
-                            </div>
-                            <a href="https://trendypixel.gumroad.com/l/Trendy-Pixel-Empire-Pack" target="_blank" class="btn-gold" style="padding: 15px 40px; font-size: 1.1rem;">Buy Full Bundle</a>
-                        </div>
-                    </div>
-                </div>
         </section>
 
         <section id="affiliate" class="page-section">
@@ -244,6 +253,7 @@
         </div>
     </footer>
 
+    <script src="https://gumroad.com/js/gumroad.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

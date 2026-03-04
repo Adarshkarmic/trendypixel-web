@@ -31,7 +31,6 @@ const lines = document.querySelectorAll('.hamburger div');
 
 hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
-    // Animate Hamburger to X
     lines[0].style.transform = mobileMenu.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : 'none';
     lines[1].style.opacity = mobileMenu.classList.contains('active') ? '0' : '1';
     lines[2].style.transform = mobileMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : 'none';
@@ -46,7 +45,6 @@ mobileLinks.forEach(link => {
 
 // --- 3. MONTHLY PAYOUT COUNTDOWN TIMER ---
 function updateTimer() {
-    // Set target to end of current month
     const now = new Date();
     const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
     const diff = endOfMonth - now;
@@ -68,7 +66,7 @@ updateTimer();
 if (window.innerWidth > 992) {
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
-    const links = document.querySelectorAll('a, button, input, .product-card, .hamburger');
+    const links = document.querySelectorAll('a, button, input, .product-card, .step-card');
 
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
@@ -93,7 +91,7 @@ window.addEventListener('scroll', () => {
 const tiltCards = document.querySelectorAll('.tilt-card');
 tiltCards.forEach(card => {
     card.addEventListener('mousemove', e => {
-        if (window.innerWidth < 992) return; // Disable on mobile
+        if (window.innerWidth < 992) return; 
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left; 
         const y = e.clientY - rect.top;
