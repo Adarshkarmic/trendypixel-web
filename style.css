@@ -189,11 +189,11 @@ input:focus { border-color: var(--gold-2); background: rgba(0,0,0,0.7); box-shad
 
 .fluid-blob {
     position: absolute;
-    filter: blur(120px); /* Ye liquid effect create karta hai */
+    filter: blur(90px); /* Blur thoda kam kiya taaki color spread dikhe */
     border-radius: 50%;
     animation: fluid-move 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0.6; /* Thoda transparent taaki text padhne me dikkat na ho */
-    mix-blend-mode: screen; /* Colors ko premium tarike se mix karega */
+    opacity: 0.85; /* Opacity badha di taaki glow bright ho */
+    mix-blend-mode: screen; 
 }
 
 /* Violet / Purple Brush Blob */
