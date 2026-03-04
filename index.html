@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendy Pixel | Premium Digital Assets</title>
+    <title>Trendy Pixel | Premium Digital Assets & POD Graphics</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div id="particles-js"></div>
 
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -15,13 +17,28 @@
     <nav id="navbar">
         <div class="nav-container">
             <h1 class="nav-logo">TRENDY<span>PIXEL</span></h1>
-            <div class="nav-links">
+            
+            <div class="nav-links desktop-only">
+                <a href="#company" class="btn-nav">Our Vision</a>
                 <a href="#products" class="btn-nav">Bundles</a>
-                <a href="#features" class="btn-nav">Features</a>
+                <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-nav glow-text">Shop Now</a>
                 <a href="#affiliate" class="btn-nav primary-gold">Join Affiliate</a>
+            </div>
+
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
         </div>
     </nav>
+
+    <div class="mobile-menu">
+        <a href="#company" class="mobile-link">Our Vision</a>
+        <a href="#products" class="mobile-link">Bundles</a>
+        <a href="https://trendypixel.gumroad.com" target="_blank" class="mobile-link glow-text">Shop Now</a>
+        <a href="#affiliate" class="mobile-link primary-gold">Join Affiliate</a>
+    </div>
 
     <main>
         <section id="home" class="hero-section">
@@ -32,40 +49,34 @@
                     <span class="pixel-part">PIXEL</span>
                     <span class="star-spark">✦</span>
                 </h1>
-                <p class="hero-tagline gsap-up" style="animation-delay: 0.1s;">CRAFTING THE FUTURE OF DIGITAL CREATION</p>
+                <p class="hero-tagline gsap-up" style="animation-delay: 0.1s;">POWERING B2B SELLERS & CREATORS GLOBALLY</p>
                 
                 <div class="hero-stats gsap-up" style="animation-delay: 0.2s;">
-                    <div class="stat-item"><span class="counter" data-target="40000">0</span><span class="plus">+</span><p>Premium Assets</p></div>
+                    <div class="stat-item"><span class="counter" data-target="40000">0</span><span class="plus">+</span><p>Print-Ready Assets</p></div>
                     <div class="stat-divider"></div>
-                    <div class="stat-item"><span class="counter" data-target="100">0</span><span class="plus">%</span><p>Commercial Rights</p></div>
+                    <div class="stat-item"><span class="counter" data-target="100">0</span><span class="plus">%</span><p>Zero Inventory Cost</p></div>
                     <div class="stat-divider"></div>
-                    <div class="stat-item"><span class="text-stat">24/7</span><p>Auto Delivery</p></div>
+                    <div class="stat-item"><span class="text-stat">Auto</span><p>Gumroad Delivery</p></div>
                 </div>
                 
-                <a href="#products" class="btn-gold large-btn gsap-up" style="animation-delay: 0.3s;">Explore The Collections</a>
+                <div class="cta-group gsap-up" style="animation-delay: 0.3s;">
+                    <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold large-btn">Shop The Collection</a>
+                    <a href="#affiliate" class="btn-outline large-btn">Start Earning Free</a>
+                </div>
             </div>
         </section>
 
-        <section id="features" class="page-section">
-            <div class="section-header gsap-scroll">
-                <h2 class="section-title">The <span class="gold-gradient">Gold Standard</span></h2>
-                <p class="section-subtitle">Why top creators choose our digital assets to scale their content.</p>
-            </div>
-            <div class="feature-grid">
-                <div class="glass-card feature-box gsap-scroll">
-                    <div class="feature-icon">💎</div>
-                    <h3>Elite Resolution</h3>
-                    <p>Advanced AI models polished with human precision. Crystal clear 4K & 8K qualities.</p>
+        <section id="company" class="page-section">
+            <div class="vision-container glass-card gsap-scroll">
+                <div class="vision-text">
+                    <h2 class="section-title">The <span class="gold-gradient">Masterplan</span></h2>
+                    <p class="lead-text">We are not just selling art; we are supplying the ammunition for your digital and physical product empire.</p>
+                    <p>Whether you are running a Print-on-Demand (POD) store abroad, a local self-printing business, or creating faceless content, scaling requires world-class visuals. Trendy Pixel bridges that gap. We polish advanced AI models with human precision to deliver commercial-ready assets.</p>
+                    <p><strong>Our Mission:</strong> 40,000+ sales worldwide. 1 Crore in value generated for our reseller network. Build your business on our foundation with zero upfront investment.</p>
                 </div>
-                <div class="glass-card feature-box gsap-scroll" style="transition-delay: 0.1s;">
-                    <div class="feature-icon">📜</div>
-                    <h3>Full Commercial License</h3>
-                    <p>Use them anywhere. Resell, modify, or integrate into your own paid projects without limits.</p>
-                </div>
-                <div class="glass-card feature-box gsap-scroll" style="transition-delay: 0.2s;">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Instant Access</h3>
-                    <p>Zero wait time. Secure your bundle and download your assets immediately via Gumroad.</p>
+                <div class="vision-stats">
+                    <div class="v-stat"><h3>25-45%</h3><p>Affiliate Commission</p></div>
+                    <div class="v-stat"><h3>8K</h3><p>Max Resolution</p></div>
                 </div>
             </div>
         </section>
@@ -73,8 +84,8 @@
         <section id="products" class="page-section products-bg">
             <div class="glow-sphere right-side"></div>
             <div class="section-header gsap-scroll">
-                <h2 class="section-title">Masterpiece <span class="pixel-gradient">Bundles</span></h2>
-                <p class="section-subtitle">Our best-selling collections. Ready to download.</p>
+                <h2 class="section-title">Arsenal for <span class="pixel-gradient">Sellers</span></h2>
+                <p class="section-subtitle">Commercial-license included. Ready for posters, canvases, merch, and digital scaling.</p>
             </div>
             
             <div class="product-grid">
@@ -86,7 +97,7 @@
                         <p>The ultimate arsenal for creators. High-retention visual assets across 10+ categories.</p>
                         <div class="price-row">
                             <span class="price">₹1,999</span>
-                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Buy Now</a>
+                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -94,12 +105,12 @@
                 <div class="glass-card product-card tilt-card gsap-scroll" style="transition-delay: 0.1s;">
                     <div class="product-img placeholder-2"></div>
                     <div class="product-info">
-                        <span class="product-badge blue">NEW DROP</span>
-                        <h3>Faceless Reels Empire</h3>
-                        <p>1000+ ready-to-use aesthetic videos for Instagram and YouTube Shorts.</p>
+                        <span class="product-badge blue">POD FOCUSED</span>
+                        <h3>The Canvas Print Master-Pack</h3>
+                        <p>Upscaled, DPI-optimized aesthetic wall art designs. Perfect for Redbubble, Etsy, and self-printing.</p>
                         <div class="price-row">
-                            <span class="price">₹999</span>
-                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Buy Now</a>
+                            <span class="price">₹1,299</span>
+                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -107,12 +118,25 @@
                 <div class="glass-card product-card tilt-card gsap-scroll" style="transition-delay: 0.2s;">
                     <div class="product-img placeholder-3"></div>
                     <div class="product-info">
-                        <span class="product-badge purple">EXCLUSIVE</span>
-                        <h3>Dark Fantasy Art Pack</h3>
-                        <p>Hand-refined AI generated illustrations for book covers, thumbnails, and prints.</p>
+                        <span class="product-badge purple">SOCIAL SCALING</span>
+                        <h3>Faceless Reels Empire</h3>
+                        <p>1000+ ready-to-use aesthetic videos for Instagram, TikTok, and YouTube Shorts.</p>
+                        <div class="price-row">
+                            <span class="price">₹999</span>
+                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card product-card tilt-card gsap-scroll" style="transition-delay: 0.3s;">
+                    <div class="product-img placeholder-4"></div>
+                    <div class="product-info">
+                        <span class="product-badge" style="background: rgba(58, 237, 200, 0.2); color: #3aedc8;">EXCLUSIVE</span>
+                        <h3>Dark Fantasy Art Bundle</h3>
+                        <p>Hand-refined illustrations targeting the highly profitable fantasy niche. Book covers, t-shirts, etc.</p>
                         <div class="price-row">
                             <span class="price">₹1,499</span>
-                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Buy Now</a>
+                            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-gold small">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -121,32 +145,45 @@
 
         <section id="affiliate" class="page-section">
             <div class="section-header gsap-scroll">
-                <h2 class="section-title">Royal Affiliate <span class="gold-gradient">Network</span></h2>
-                <p class="section-subtitle">Earn 25-45% passive commission by sharing our premium bundles.</p>
+                <h2 class="section-title">Zero Investment <span class="gold-gradient">Empire</span></h2>
+                <p class="section-subtitle">Sell our products. Keep 25-45% of the profit. No inventory, no shipping, no customer support hassle.</p>
             </div>
+            
             <div class="affiliate-grid">
                 <div class="glass-card form-container gsap-scroll">
-                    <h4>Generate Reseller ID</h4>
-                    <p style="margin-bottom: 20px; opacity: 0.7;">Join the inner circle and build your own income stream.</p>
+                    <div class="timer-box">
+                        <p class="timer-label">CURRENT PAYOUT CYCLE ENDS IN:</p>
+                        <div class="countdown">
+                            <div class="time-block"><span id="days">00</span><small>DAYS</small></div><span>:</span>
+                            <div class="time-block"><span id="hours">00</span><small>HRS</small></div><span>:</span>
+                            <div class="time-block"><span id="minutes">00</span><small>MIN</small></div><span>:</span>
+                            <div class="time-block"><span id="seconds">00</span><small>SEC</small></div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 30px;">Generate Reseller ID</h4>
+                    <p style="margin-bottom: 20px; opacity: 0.7;">Join the network today.</p>
                     <form id="licenseForm">
                         <input type="text" id="userName" placeholder="Your Full Name" required>
                         <input type="email" id="userEmail" placeholder="Email Address" required>
-                        <button type="submit" class="btn-gold full-width">Get Authorized License</button>
+                        <button type="submit" class="btn-gold full-width">Get Authorized Link</button>
                     </form>
                     <div id="licenseView" class="license-box" style="display:none;">
                         <p class="label">AUTHORIZED RESELLER ID</p>
                         <h2 id="idDisplay"></h2>
                         <p class="holder">HOLDER: <span id="nameDisplay"></span></p>
-                        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--pixel-3);">Redirecting to dashboard...</p>
+                        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--pixel-3);">Redirecting to Gumroad Affiliates...</p>
                     </div>
                 </div>
 
                 <div class="glass-card leaderboard gsap-scroll" style="transition-delay: 0.2s;">
-                    <h4>Global Leaderboard</h4>
-                    <div class="leader-row"><span>1. Rahul K.</span> <span>45 Sales</span></div>
-                    <div class="leader-row"><span>2. Priya S.</span> <span>32 Sales</span></div>
-                    <div class="leader-row current"><span>3. Adarsh</span> <span>28 Sales</span></div>
-                    <div class="leader-row"><span>4. Sneha M.</span> <span>15 Sales</span></div>
+                    <h4>Monthly Top Resellers</h4>
+                    <p style="opacity: 0.6; font-size: 0.85rem; margin-bottom: 20px;">Top 3 get a bonus 10% commission bump.</p>
+                    <div class="leader-row"><span>1. Rahul K.</span> <span>145 Sales</span></div>
+                    <div class="leader-row"><span>2. Priya S.</span> <span>112 Sales</span></div>
+                    <div class="leader-row current"><span>3. Adarsh</span> <span>88 Sales</span></div>
+                    <div class="leader-row"><span>4. Sneha M.</span> <span>65 Sales</span></div>
+                    <div class="leader-row"><span>5. David W.</span> <span>40 Sales</span></div>
                 </div>
             </div>
         </section>
@@ -156,12 +193,12 @@
         <div class="footer-content">
             <div class="footer-col brand-col">
                 <h1 class="nav-logo" style="margin-bottom: 10px;">TRENDY<span>PIXEL</span></h1>
-                <p>Building a digital empire, one pixel at a time. The ultimate destination for modern creators.</p>
+                <p>Equipping global creators and B2B sellers with elite digital assets. Build your empire today.</p>
             </div>
             <div class="footer-col">
-                <h4 class="gold-text">QUICK LINKS</h4>
-                <a href="#products">Shop Bundles</a><br>
-                <a href="#affiliate">Affiliate Program</a>
+                <h4 class="gold-text">NETWORK</h4>
+                <a href="https://trendypixel.gumroad.com" target="_blank">Shop All Bundles</a><br>
+                <a href="#affiliate">Affiliate Dashboard</a><br>
             </div>
             <div class="footer-col">
                 <h4 class="gold-text">SUPPORT</h4>
@@ -173,6 +210,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
