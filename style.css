@@ -114,7 +114,6 @@ nav.scrolled { background: rgba(2, 2, 8, 0.9); border-bottom: 1px solid rgba(212
 .mockup-img { width: 100%; aspect-ratio: 4/5; background-size: cover; background-position: center; transition: transform 0.5s ease; }
 .mockup-card:hover .mockup-img { transform: scale(1.08); }
 
-/* Placeholder Mockup Colors (Replace with actual mockup images later) */
 .mockup-canvas { background: linear-gradient(45deg, #1f1c2c, #928dab); } 
 .mockup-apparel { background: linear-gradient(45deg, #232526, #414345); } 
 .mockup-merch { background: linear-gradient(45deg, #141e30, #243b55); } 
@@ -135,9 +134,7 @@ nav.scrolled { background: rgba(2, 2, 8, 0.9); border-bottom: 1px solid rgba(212
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
 .product-card { padding: 20px; display: flex; flex-direction: column; gap: 20px; background: rgba(10, 10, 20, 0.6); }
 .product-img { width: 100%; aspect-ratio: 16/10; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transform: translateZ(30px); }
-
-/* Custom Image for Mega Bundle */
-.empire-pack-img { background-image: url('bundle-cover.jpg'); background-size: cover; background-position: center; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.empire-pack-img { background-size: cover; background-position: center; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .placeholder-2 { background: linear-gradient(45deg, #4b134f, #c94b4b); }
 .placeholder-3 { background: linear-gradient(45deg, #111, #444); }
 .placeholder-4 { background: linear-gradient(45deg, #0f2027, #203a43, #2c5364); }
@@ -162,48 +159,4 @@ nav.scrolled { background: rgba(2, 2, 8, 0.9); border-bottom: 1px solid rgba(212
 
 input { width: 100%; padding: 18px; margin-bottom: 20px; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 12px; color: #fff; outline: none; transition: 0.3s; font-size: 1rem; }
 input:focus { border-color: var(--gold-2); background: rgba(0,0,0,0.7); box-shadow: 0 0 15px rgba(212,175,55,0.2); }
-.license-box { margin-top: 25px; padding: 25px; border: 1px solid var(--gold-3); border-radius: 16px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(0,0,0,0.6)); text-align: center; }
-.license-box .label { font-size: 0.75rem; letter-spacing: 3px; color: var(--gold-2); }
-.license-box h2 { color: var(--white); font-size: 2rem; letter-spacing: 2px; margin: 10px 0; font-family: monospace; text-shadow: 0 0 15px rgba(212,175,55,0.6); }
-
-.leaderboard h4 { font-size: 1.8rem; color: var(--gold-1); margin-bottom: 5px; }
-.leader-row { display: flex; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 600; font-size: 1.1rem; }
-.leader-row:last-child { border-bottom: none; }
-.leader-row.current { color: #000; background: linear-gradient(to right, var(--gold-2), var(--gold-1)); padding: 18px 15px; border-radius: 10px; margin: 0 -15px; border: none; box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
-
-/* FOOTER */
-.god-footer { background: #010103; padding: 80px 8% 30px; border-top: 1px solid var(--glass-border); position: relative; z-index: 1; }
-.footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; max-width: 1400px; margin: 0 auto; margin-bottom: 60px; }
-.brand-col p { opacity: 0.6; margin-top: 15px; max-width: 400px; font-size: 1.05rem; }
-.footer-col h4 { letter-spacing: 2px; margin-bottom: 25px; font-size: 0.9rem; }
-.footer-col a { color: #aaa; text-decoration: none; display: block; margin-bottom: 12px; transition: 0.3s; }
-.footer-col a:hover { color: var(--gold-1); padding-left: 5px; }
-.footer-col p { color: #aaa; margin-bottom: 10px; }
-.footer-bottom { text-align: center; border-top: 1px solid var(--glass-border); padding-top: 30px; font-size: 0.85rem; opacity: 0.4; }
-
-/* ANIMATIONS & RESPONSIVE */
-@keyframes flow { to { background-position: 200% center; } }
-@keyframes blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3) rotate(15deg); } }
-
-@media (max-width: 992px) {
-    .cursor, .cursor-follower { display: none; } 
-    * { cursor: auto; }
-    .desktop-only { display: none; }
-    .hamburger { display: block; }
-    
-    .god-logo { flex-direction: column; gap: 0; letter-spacing: 2px; }
-    .star-spark { right: 0; top: 0; }
-    .hero-stats { flex-direction: column; gap: 20px; }
-    .stat-divider { width: 60px; height: 1px; }
-    .cta-group { flex-direction: column; }
-    
-    .vision-container { flex-direction: column; gap: 40px; }
-    .vision-stats { border-left: none; border-top: 1px solid var(--glass-border); padding-left: 0; padding-top: 30px; flex-direction: row; justify-content: space-around; width: 100%; }
-    
-    .affiliate-grid { grid-template-columns: 1fr; }
-    .countdown { font-size: 1.5rem; }
-    .time-block { min-width: 55px; padding: 8px; }
-    
-    .footer-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-    .brand-col p { margin: 15px auto 0; }
-}
+.license-box { margin-top: 25px; padding: 25px; border: 1px solid var(--gold-3); border-radius: 16px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.
