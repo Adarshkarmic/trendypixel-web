@@ -172,3 +172,72 @@ input:focus { border-color: var(--gold-2); background: rgba(0,0,0,0.7); box-shad
     border: 1px solid var(--glass-border);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+
+
+
+/* --- VIOLET FLUID ANIMATION (GOD LEVEL) --- */
+.fluid-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -3; /* Sabse peeche rahega */
+    overflow: hidden;
+    background: var(--bg); /* Dark background se merge hoga */
+}
+
+.fluid-blob {
+    position: absolute;
+    filter: blur(120px); /* Ye liquid effect create karta hai */
+    border-radius: 50%;
+    animation: fluid-move 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.6; /* Thoda transparent taaki text padhne me dikkat na ho */
+    mix-blend-mode: screen; /* Colors ko premium tarike se mix karega */
+}
+
+/* Violet / Purple Brush Blob */
+.blob-1 {
+    top: -10%; 
+    left: -10%;
+    width: 55vw; 
+    height: 55vw;
+    background: #5a189a; /* Deep Violet */
+    animation-delay: 0s;
+}
+
+/* Bright Purple / Magenta Blob */
+.blob-2 {
+    bottom: -20%; 
+    right: -10%;
+    width: 65vw; 
+    height: 65vw;
+    background: #9d50bb; /* Trendy Pixel Purple */
+    animation-delay: -5s;
+}
+
+/* Cyan/Teal accent (Logo se match karne ke liye) */
+.blob-3 {
+    top: 40%; 
+    left: 50%;
+    width: 45vw; 
+    height: 45vw;
+    background: rgba(0, 210, 255, 0.3); /* Soft Cyan */
+    animation-delay: -10s;
+}
+
+/* Fluid Morphing Movement */
+@keyframes fluid-move {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(15vw, -15vh) scale(1.1) rotate(10deg); }
+    66% { transform: translate(-10vw, 20vh) scale(0.9) rotate(-10deg); }
+    100% { transform: translate(5vw, 5vh) scale(1.2) rotate(5deg); }
+}
+
+/* Mobile par blur thoda kam aur size adjust taaki lag na ho */
+@media (max-width: 768px) {
+    .fluid-blob { filter: blur(80px); opacity: 0.5; }
+    .blob-1 { width: 80vw; height: 80vw; }
+    .blob-2 { width: 90vw; height: 90vw; }
+    .blob-3 { width: 70vw; height: 70vw; }
+}
