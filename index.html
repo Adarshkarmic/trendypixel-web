@@ -6,32 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trendy Pixel | Official Store</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <nav>
         <h1 class="logo">TRENDY<span>PIXEL</span></h1>
-        <div>
+        <div class="nav-links">
             <a href="https://trendypixel.gumroad.com" class="btn secondary">Shop</a>
             <a href="#affiliate" class="btn primary">Affiliate</a>
         </div>
     </nav>
 
-    <section id="home" class="page-section">
+    <section id="home" class="page-section hero-main">
         <div class="hero-brand-container">
-            <h1 class="bezier-logo">TRENDY PIXEL</h1>
             <div class="bezier-glow"></div>
+            <h1 class="bezier-logo">
+                TRENDY<span class="pixel-text">PIXEL</span>
+                <span class="sparkle">✦</span>
+            </h1>
+            <p class="brand-tagline">PREMIUM DIGITAL ASSETS</p>
         </div>
-        <div style="text-align: center; margin-top: 100px;">
-            <p style="color: var(--gold); letter-spacing: 4px;">PREMIUM DIGITAL ASSETS</p>
-            <h2 style="font-size: 3.5rem; margin: 20px 0;">The 40K Collection</h2>
-            <p style="max-width: 600px; opacity: 0.8;">Excellence in every pixel. Hand-refined art for creators.</p>
+
+        <div class="collection-intro">
+            <h2 class="collection-title">The 40K Collection</h2>
+            <p class="collection-desc">Excellence in every pixel. Hand-refined art for creators.</p>
         </div>
     </section>
 
     <section id="affiliate" class="page-section">
-        <h3 style="color: var(--gold); font-size: 2rem;">Affiliate Programme (25-45% Commission)</h3>
+        <h3 class="section-heading">Affiliate Programme <span class="highlight">(25-45% Commission)</span></h3>
         <div class="affiliate-wrapper">
             <div class="form-side">
                 <h4>Join the Royal Network</h4>
@@ -43,34 +48,31 @@
                 </form>
 
                 <div id="licenseView" class="license-card" style="display:none;">
-                    <h5 style="color: var(--gold); letter-spacing: 2px;">OFFICIAL AUTHORIZED LICENSE</h5>
-                    <p style="margin: 10px 0;">ID: <span id="idDisplay"
-                            style="color: var(--gold); font-weight: bold;"></span></p>
+                    <h5 style="color: var(--gold-primary); letter-spacing: 2px;">OFFICIAL AUTHORIZED LICENSE</h5>
+                    <p style="margin: 10px 0;">ID: <span id="idDisplay" style="color: var(--gold-primary); font-weight: bold;"></span></p>
                     <p>HOLDER: <span id="nameDisplay"></span></p>
                 </div>
             </div>
 
             <div class="leaderboard-side">
                 <h4 style="margin-bottom: 20px;">Top Sellers</h4>
-                <ul style="list-style: none;">
-                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">1. Rahul K. - 45 Sales
-                    </li>
-                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">2. Priya S. - 32 Sales
-                    </li>
-                    <li style="padding: 10px 0;">3. Adarsh S. - 28 Sales</li>
+                <ul class="leader-list">
+                    <li>1. Rahul K. - 45 Sales</li>
+                    <li>2. Priya S. - 32 Sales</li>
+                    <li>3. Adarsh S. - 28 Sales</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="company" class="page-section" style="background: rgba(0,0,0,0.2);">
-        <div style="display: flex; gap: 50px; text-align: left; max-width: 1000px;">
-            <div style="flex: 1;">
-                <h4 style="color: var(--gold);">Our Vision</h4>
-                <p>Advanced AI models polished with human precision to pay off debts and build a 1Cr empire.</p>
+    <section id="company" class="page-section footer-section">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Our Vision</h4>
+                <p>Advanced AI models polished with human precision. Building a 1Cr empire, one pixel at a time.</p>
             </div>
-            <div style="flex: 1;">
-                <h4 style="color: var(--gold);">Support</h4>
+            <div class="footer-col">
+                <h4>Support</h4>
                 <p>Email: support@trendypixel.de</p>
                 <p>Direct Reseller Help Available 24/7</p>
             </div>
@@ -96,5 +98,4 @@
         });
     </script>
 </body>
-
 </html>
