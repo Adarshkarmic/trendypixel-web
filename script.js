@@ -1,12 +1,14 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. PRELOADER ANIMATION
-const tl = gsap.timeline();
-tl.to(".progress", { width: "100%", duration: 1.5, ease: "power3.inOut" })
-  .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" })
-  .from(".hero-kicker", { y: 20, opacity: 0, duration: 0.5 }, "-=0.3")
-  .from(".hero-title", { y: 50, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.2")
-  .from(".hero-desc-box, .hero-actions", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.4");
+// 1. PRELOADER ANIMATION (FIXED: Waits for page to fully load)
+window.addEventListener("load", () => {
+    const tl = gsap.timeline();
+    tl.to(".progress", { width: "100%", duration: 1, ease: "power3.inOut" })
+      .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" })
+      .from(".hero-kicker", { y: 20, opacity: 0, duration: 0.5 }, "-=0.3")
+      .from(".hero-title", { y: 50, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.2")
+      .from(".hero-desc-box, .hero-actions", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.4");
+});
 
 // 2. LENIS SMOOTH SCROLL (The Butter Effect)
 const lenis = new Lenis({

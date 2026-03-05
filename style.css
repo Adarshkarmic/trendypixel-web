@@ -38,9 +38,9 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .text-stroke { color: transparent; -webkit-text-stroke: 2px var(--text-main); }
 .hero-desc-box { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; line-height: 1.6; margin-bottom: 50px; border-left: 2px solid var(--gumroad-pink); padding-left: 20px; }
 .hero-desc-box p { margin-bottom: 10px; }
-.btn-primary { background: var(--gumroad-pink); color: #fff; padding: 18px 40px; text-decoration: none; font-weight: 800; letter-spacing: 1px; font-size: 1rem; text-transform: uppercase; display: inline-block; transition: 0.3s; }
-.btn-primary:hover { background: #fff; color: #000; }
-.abstract-shape { position: absolute; right: -10%; top: 20%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(255,0,128,0.1) 0%, rgba(0,0,0,0) 70%); filter: blur(60px); z-index: 1; }
+.btn-primary { background: var(--gumroad-pink); color: #fff; padding: 18px 40px; text-decoration: none; font-weight: 800; letter-spacing: 1px; font-size: 1rem; text-transform: uppercase; display: inline-block; transition: 0.3s; border: 1px solid var(--gumroad-pink); }
+.btn-primary:hover { background: transparent; color: var(--gumroad-pink); }
+.abstract-shape { position: absolute; right: -10%; top: 20%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(255,0,128,0.1) 0%, rgba(0,0,0,0) 70%); filter: blur(60px); z-index: 1; pointer-events: none; }
 
 /* INFINITE MARQUEE */
 .marquee-container { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; background: var(--bg-panel); white-space: nowrap; }
@@ -53,7 +53,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .horizontal-container { display: flex; width: 350vw; height: 100vh; }
 .h-panel { width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 5%; }
 
-.intro-panel h2 { font-family: 'Oswald', sans-serif; font-size: clamp(4rem, 10vw, 8rem); line-height: 0.9; text-transform: uppercase; color: var(--gold); margin-bottom: 20px;}
+.intro-panel h2 { font-family: 'Oswald', sans-serif; font-size: clamp(4rem, 10vw, 8rem); line-height: 0.9; text-transform: uppercase; color: var(--text-main); margin-bottom: 20px;}
 .intro-panel p { font-size: 1.5rem; color: var(--text-muted); }
 
 .prod-card { display: block; width: 65vw; max-width: 900px; text-decoration: none; color: #fff; position: relative; }
@@ -77,7 +77,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 /* AFFILIATE TERMINAL */
 .affiliate-terminal { padding: 150px 5%; }
 .terminal-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 80px; }
-.terminal-left h2 { font-family: 'Oswald', sans-serif; font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+.terminal-left h2 { font-family: 'Oswald', sans-serif; font-size: 4rem; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; }
 .highlight-pink { color: var(--gumroad-pink); }
 .cyber-form { margin-top: 40px; display: flex; flex-direction: column; gap: 30px; }
 .input-group { position: relative; }
@@ -85,16 +85,16 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .input-group label { position: absolute; top: 10px; left: 0; color: var(--text-muted); font-size: 1rem; transition: 0.3s; pointer-events: none; letter-spacing: 2px; }
 .input-group input:focus ~ label, .input-group input:not(:placeholder-shown) ~ label { top: -20px; font-size: 0.8rem; color: var(--gumroad-pink); }
 .input-group input:focus { border-bottom-color: var(--gumroad-pink); }
-.btn-pink { background: var(--gumroad-pink); color: #fff; border: none; padding: 20px; font-size: 1.1rem; font-weight: 800; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; margin-top: 10px; transition: 0.3s; }
-.btn-pink:hover { background: #fff; color: #000; }
+.btn-pink { background: var(--gumroad-pink); color: #fff; border: none; padding: 20px; font-size: 1.1rem; font-weight: 800; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; margin-top: 10px; transition: 0.3s; border: 1px solid var(--gumroad-pink); }
+.btn-pink:hover { background: transparent; color: var(--gumroad-pink); }
 
 .generated-license { margin-top: 40px; padding: 30px; border: 1px solid var(--gold); background: rgba(212, 175, 55, 0.05); position: relative; overflow: hidden; }
 .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--gold); animation: scan 2s linear infinite; box-shadow: 0 0 10px var(--gold); }
 @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
 .generated-license h5 { color: var(--gold); margin-bottom: 15px; letter-spacing: 2px; }
 
-.terminal-right h3 { font-family: 'Oswald', sans-serif; font-size: 2rem; margin-bottom: 40px; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
-.leader-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #222; font-size: 1.2rem; font-weight: 600; }
+.terminal-right h3 { font-family: 'Oswald', sans-serif; font-size: 2rem; margin-bottom: 40px; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 15px; text-transform: uppercase; }
+.leader-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #222; font-size: 1.2rem; font-weight: 600; text-transform: uppercase; }
 .rank { color: var(--gumroad-pink); font-family: 'Oswald'; font-size: 1.5rem; width: 40px; }
 .sales { color: var(--text-muted); font-size: 1rem; }
 
@@ -102,7 +102,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .agency-footer { padding: 100px 5% 50px; border-top: 1px solid var(--border); text-align: center; }
 .massive-footer { font-family: 'Oswald', sans-serif; font-size: clamp(4rem, 15vw, 15rem); line-height: 1; color: #111; -webkit-text-stroke: 1px #333; margin-bottom: 50px; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 2px; }
-.footer-bottom a { color: #fff; text-decoration: none; }
+.footer-bottom a { color: #fff; text-decoration: none; text-transform: uppercase; }
 
 @media (max-width: 900px) {
     .horizontal-container { width: 400vw; }
