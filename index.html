@@ -3,96 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendy Pixel | The 1Cr Empire</title>
+    <meta name="description" content="Trendy Pixel: 40K+ Premium AI-Generated Commercial Art, Triptychs, and Bundles.">
+    <meta name="keywords" content="Trendy Pixel, AI Art, Gumroad bundles, Wall art commercial rights, Triptych art">
+    <title>Trendy Pixel | 1Cr Reseller Empire</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 <body>
 
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
+    <div class="royal-moving-bg"></div>
 
     <nav>
         <div class="logo">TRENDY<span>PIXEL</span></div>
-        <div class="nav-links">
-            <a href="#vault">The Vault</a>
-            <a href="#bundles">Bundles</a>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="#triptychs">Triptych Vault</a>
+            <a href="#bundles">Mega Bundles</a>
             <a href="#affiliate" class="btn-gold">Join Affiliate Hub</a>
         </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#triptychs" class="mobile-link">Triptych Vault</a>
+        <a href="#bundles" class="mobile-link">Mega Bundles</a>
+        <a href="#affiliate" class="btn-gold">Join Affiliate Hub</a>
+    </div>
 
     <section class="hero" id="home">
         <div class="hero-content gs-reveal">
             <span class="gold-label">THE FOUNDER'S TRUTH</span>
             <h1 class="mega-title">From 50 Lakh Debt to a <br><span class="text-glow">1Cr Empire.</span></h1>
             <p class="hero-desc">
-                I'm Adarsh. At 25, life handed me a choice: fold under massive pressure or build an empire. We supply the ultra-premium ammunition for your digital business. Every asset is hand-refined.
+                We supply the ultra-premium ammunition for your digital business. Every asset is hand-refined for 8K resolution and commercial scaling.
             </p>
-            <a href="#vault" class="btn-primary">Explore The Vault</a>
+            <a href="#triptychs" class="btn-primary">Explore The Vault</a>
         </div>
     </section>
 
-    <section class="triptych-vault" id="vault">
+    <section id="triptychs">
         <div class="section-header text-center gs-reveal">
-            <h2 class="text-glow">The Triptych Vault</h2>
-            <p>Swipe or drag to explore our best-selling 3-panel masterpieces.</p>
+            <h2 class="text-glow">Divine Triptychs</h2>
+            <p>Our top-selling 3-panel masterpieces.</p>
         </div>
-        
-        <div class="swiper mySwiper gs-reveal">
-            <div class="swiper-wrapper" id="triptych-container">
-                </div>
-            <div class="swiper-pagination"></div>
-        </div>
+        <div class="product-grid" id="triptych-grid">
+            </div>
     </section>
 
-    <section class="bundles-section" id="bundles">
-        <div class="mega-bundle-card gs-reveal">
-            <div class="bundle-content">
-                <span class="gold-label">ULTIMATE ARSENAL</span>
-                <h2>The 40K+ Master Bundle</h2>
-                <p>Don't buy individual pieces. Get the entire Trendy Pixel database. Over 40,000+ hand-refined AI assets, ready for POD, Faceless Channels, and Etsy scaling.</p>
-                <div class="bundle-price">
-                    <span class="strike">$499</span> <span class="current-price text-glow">$99</span>
-                </div>
-                <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-primary">Claim The Empire Bundle</a>
-            </div>
-            <div class="bundle-image">
-                <div class="floating-art art-1"></div>
-                <div class="floating-art art-2"></div>
-                <div class="floating-art art-3"></div>
-            </div>
+    <section id="bundles">
+        <div class="section-header text-center gs-reveal">
+            <h2 class="text-glow">Evergreen Bundles</h2>
+            <p>Scale your Etsy or POD store instantly.</p>
         </div>
-    </section>
-
-    <section class="masterplan" id="masterplan">
-        <div class="bento-grid">
-            <div class="bento-box box-large gs-reveal">
-                <h3>Our Mission</h3>
-                <p>40,000+ sales worldwide. Build your business on our foundation with zero upfront investment.</p>
-                <div class="stats-row">
-                    <div class="stat"><h4>25-45%</h4><span>Commission</span></div>
-                    <div class="stat"><h4>8K</h4><span>Resolution</span></div>
-                    <div class="stat"><h4>100%</h4><span>Commercial</span></div>
-                </div>
+        <div class="product-grid" id="bundle-grid">
             </div>
-            <div class="bento-box box-small img-box gs-reveal" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=600');">
-                <div class="box-overlay"><h4>Wall Art</h4></div>
-            </div>
-            <div class="bento-box box-small img-box gs-reveal" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600');">
-                <div class="box-overlay"><h4>Streetwear</h4></div>
-            </div>
-        </div>
     </section>
 
     <section class="affiliate-hub" id="affiliate">
         <div class="affiliate-wrapper gs-reveal">
             <div class="glass-panel form-side">
                 <h3>Join the Royal Network</h3>
-                <p class="muted">Fill details to get your unique license ID.</p>
+                <p class="muted">Earn 25-45% Commission. Generate your License ID.</p>
                 <form id="licenseForm">
                     <input type="text" id="userName" placeholder="Enter Full Name" required>
                     <input type="email" id="userEmail" placeholder="Enter Email Address" required>
@@ -117,8 +96,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
