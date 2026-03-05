@@ -1,53 +1,49 @@
-/* GOD MODE 2.0 - TRENDY PIXEL (FULL MERGED CSS) */
+/* --- ULTRA PREMIUM CSS --- */
 :root {
-    --bg: #020208;
-    --gold-1: #F9E2AF;
-    --gold-2: #D4AF37;
-    --gold-3: #926D15;
-    --pixel-1: #00d2ff;
-    --pixel-2: #9d50bb;
-    --pixel-3: #3aedc8;
-    --white: #ffffff;
-    --glass: rgba(15, 15, 25, 0.4);
-    --glass-border: rgba(212, 175, 55, 0.15);
+    --bg-obsidian: #050505;
+    --gold-raw: #D4AF37;
+    --text-main: #EAEAEA;
+    --text-muted: #888888;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; cursor: none; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; cursor: none; }
+body { background-color: var(--bg-obsidian); color: var(--text-main); overflow-x: hidden; height: 100vh; }
 
-/* VIOLET FLUID ANIMATION */
-.fluid-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; overflow: hidden; background: var(--bg); }
-.fluid-blob { position: absolute; filter: blur(90px); border-radius: 50%; animation: fluid-move 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1); opacity: 0.85; mix-blend-mode: screen; }
-.blob-1 { top: -10%; left: -10%; width: 55vw; height: 55vw; background: #5a189a; }
-.blob-2 { bottom: -20%; right: -10%; width: 65vw; height: 65vw; background: #9d50bb; animation-delay: -5s; }
+/* Custom Cursor */
+.cursor { width: 10px; height: 10px; background: var(--gold-raw); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: transform 0.2s ease; }
+.cursor-follower { width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: 0.15s ease-out; }
 
-@keyframes fluid-move {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-    100% { transform: translate(5vw, 5vh) scale(1.2) rotate(5deg); }
-}
+/* Navigation */
+nav { position: fixed; top: 0; width: 100%; padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; }
+.logo span { color: var(--gold-raw); }
+.nav-btn { background: transparent; border: 1px solid var(--text-muted); color: var(--text-main); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+.nav-btn:hover { border-color: var(--gold-raw); color: var(--gold-raw); }
 
-/* CUSTOM CURSOR */
-.cursor { width: 6px; height: 6px; background: var(--pixel-3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s; box-shadow: 0 0 15px var(--pixel-3); }
-.cursor-follower { width: 35px; height: 35px; border: 1px solid rgba(0, 210, 255, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: 0.1s ease-out; }
+/* The Real Story Section */
+.story-container { position: absolute; top: 20%; left: 8%; max-width: 600px; z-index: 10; opacity: 0; transform: translateY(30px); }
+.story-label { color: var(--gold-raw); font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: block; }
+.story-title { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 30px; }
+.story-text { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
 
-/* NAVIGATION */
-nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(2, 2, 8, 0.3); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; max-width: 1400px; margin: 0 auto; }
-.nav-logo { font-size: 1.6rem; font-weight: 900; }
-.nav-logo span { color: var(--gold-2); }
+.btn-empire { background: var(--gold-raw); color: #000; padding: 15px 40px; border-radius: 50px; font-weight: 800; text-decoration: none; display: inline-block; transition: 0.3s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+.btn-empire:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(212, 175, 55, 0.4); }
 
-/* HERO SECTION (Page 1) */
-.hero-section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.bezier-logo { font-size: clamp(3rem, 11vw, 7rem); font-weight: 900; background: linear-gradient(to bottom, var(--gold-1), var(--gold-2), var(--gold-3)); -webkit-background-clip: text; color: transparent; animation: floating 4s ease-in-out infinite; filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.4)); }
+/* God Level Half-Dialer Bottom UI */
+.dialer-container { position: absolute; bottom: -200px; left: 50%; width: 1200px; height: 1200px; margin-left: -600px; border-radius: 50%; border-top: 1px solid rgba(255,255,255,0.05); z-index: 5; }
+.dialer-wheel { position: absolute; width: 100%; height: 100%; transform-origin: center center; }
 
-/* AFFILIATE HUB (Page 2 - 60/40 Split Logic) */
-.affiliate-wrapper { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; margin-top: 50px; width: 100%; }
-.glass-card { background: var(--glass); border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); padding: 40px; }
+/* Product Cards */
+.product-card { position: absolute; left: 50%; top: 0; width: 280px; height: 380px; margin-left: -140px; margin-top: -190px; background: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; transform-origin: center 790px; transition: 0.4s; text-decoration: none; color: white; display: block;}
+.product-card:hover { border-color: var(--gold-raw); box-shadow: 0 -10px 30px rgba(212, 175, 55, 0.15); }
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 992px) {
-    .affiliate-wrapper { grid-template-columns: 1fr; }
-    .cursor, .cursor-follower { display: none; }
-    * { cursor: auto; }
-}
+.card-img { width: 100%; height: 60%; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.card-info { padding: 20px; text-align: center; }
+.card-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+.card-price { color: var(--gold-raw); font-size: 1.1rem; font-weight: 500; }
+
+/* Instruction & Ambient Glow */
+.scroll-instruction { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: var(--text-muted); font-size: 0.8rem; letter-spacing: 3px; z-index: 20; text-transform: uppercase; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+.ambient-glow { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 300px; background: radial-gradient(ellipse at bottom, rgba(212, 175, 55, 0.15) 0%, rgba(5,5,5,0) 70%); z-index: 1; pointer-events: none; }
