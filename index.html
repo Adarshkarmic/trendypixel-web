@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trendy Pixel | The 1Cr Empire</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +19,8 @@
     <nav>
         <div class="logo">TRENDY<span>PIXEL</span></div>
         <div class="nav-links">
-            <a href="#masterplan">The Masterplan</a>
+            <a href="#vault">The Vault</a>
+            <a href="#bundles">Bundles</a>
             <a href="#affiliate" class="btn-gold">Join Affiliate Hub</a>
         </div>
     </nav>
@@ -28,67 +30,80 @@
             <span class="gold-label">THE FOUNDER'S TRUTH</span>
             <h1 class="mega-title">From 50 Lakh Debt to a <br><span class="text-glow">1Cr Empire.</span></h1>
             <p class="hero-desc">
-                I'm Adarsh. At 25, life handed me a choice: fold under massive pressure or build an empire. We don't just sell AI-generated art; we supply the ultra-premium ammunition for your digital business. Every 40K+ asset is hand-refined.
+                I'm Adarsh. At 25, life handed me a choice: fold under massive pressure or build an empire. We supply the ultra-premium ammunition for your digital business. Every asset is hand-refined.
             </p>
-            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-primary">Explore The Vault</a>
+            <a href="#vault" class="btn-primary">Explore The Vault</a>
+        </div>
+    </section>
+
+    <section class="triptych-vault" id="vault">
+        <div class="section-header text-center gs-reveal">
+            <h2 class="text-glow">The Triptych Vault</h2>
+            <p>Swipe or drag to explore our best-selling 3-panel masterpieces.</p>
+        </div>
+        
+        <div class="swiper mySwiper gs-reveal">
+            <div class="swiper-wrapper" id="triptych-container">
+                </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="bundles-section" id="bundles">
+        <div class="mega-bundle-card gs-reveal">
+            <div class="bundle-content">
+                <span class="gold-label">ULTIMATE ARSENAL</span>
+                <h2>The 40K+ Master Bundle</h2>
+                <p>Don't buy individual pieces. Get the entire Trendy Pixel database. Over 40,000+ hand-refined AI assets, ready for POD, Faceless Channels, and Etsy scaling.</p>
+                <div class="bundle-price">
+                    <span class="strike">$499</span> <span class="current-price text-glow">$99</span>
+                </div>
+                <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-primary">Claim The Empire Bundle</a>
+            </div>
+            <div class="bundle-image">
+                <div class="floating-art art-1"></div>
+                <div class="floating-art art-2"></div>
+                <div class="floating-art art-3"></div>
+            </div>
         </div>
     </section>
 
     <section class="masterplan" id="masterplan">
-        <div class="section-header gs-reveal">
-            <h2>The Masterplan</h2>
-            <p>We are supplying the ammunition for your digital and physical product empire.</p>
-        </div>
-
         <div class="bento-grid">
             <div class="bento-box box-large gs-reveal">
                 <h3>Our Mission</h3>
-                <p>40,000+ sales worldwide. 1 Crore in value generated for our reseller network. Build your business on our foundation with zero upfront investment.</p>
+                <p>40,000+ sales worldwide. Build your business on our foundation with zero upfront investment.</p>
                 <div class="stats-row">
                     <div class="stat"><h4>25-45%</h4><span>Commission</span></div>
-                    <div class="stat"><h4>8K</h4><span>Max Resolution</span></div>
-                    <div class="stat"><h4>100%</h4><span>Commercial Rights</span></div>
+                    <div class="stat"><h4>8K</h4><span>Resolution</span></div>
+                    <div class="stat"><h4>100%</h4><span>Commercial</span></div>
                 </div>
             </div>
-            <div class="bento-box box-small img-box gs-reveal" style="background-image: url('https://images.unsplash.com/photo-1594046243098-0fceea9d451e?q=80&w=600');">
-                <div class="box-overlay">
-                    <h4>Botanical Canvas</h4>
-                    <span>Minimalist plant illustrations</span>
-                </div>
+            <div class="bento-box box-small img-box gs-reveal" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=600');">
+                <div class="box-overlay"><h4>Wall Art</h4></div>
             </div>
             <div class="bento-box box-small img-box gs-reveal" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600');">
-                <div class="box-overlay">
-                    <h4>Streetwear & Apparel</h4>
-                    <span>High-DPI designs ready for merch</span>
-                </div>
+                <div class="box-overlay"><h4>Streetwear</h4></div>
             </div>
         </div>
     </section>
 
     <section class="affiliate-hub" id="affiliate">
-        <div class="section-header gs-reveal">
-            <h2 class="text-glow">Affiliate Programme</h2>
-            <p>Earn 25-45% Commission. Monthly Leaderboard Resets.</p>
-        </div>
-
         <div class="affiliate-wrapper gs-reveal">
             <div class="glass-panel form-side">
                 <h3>Join the Royal Network</h3>
-                <p class="muted">Fill details to get your unique license ID and secure your spot.</p>
+                <p class="muted">Fill details to get your unique license ID.</p>
                 <form id="licenseForm">
                     <input type="text" id="userName" placeholder="Enter Full Name" required>
                     <input type="email" id="userEmail" placeholder="Enter Email Address" required>
                     <button type="submit" class="btn-primary full-width">Generate My License</button>
                 </form>
-
                 <div id="licenseView" class="license-card" style="display:none;">
                     <h5>OFFICIAL AUTHORIZED LICENSE</h5>
                     <p>ID: <span id="idDisplay" class="gold-text"></span></p>
                     <p>HOLDER: <span id="nameDisplay"></span></p>
-                    <small>Redirecting to Gumroad...</small>
                 </div>
             </div>
-
             <div class="glass-panel leaderboard-side">
                 <h3>Top Sellers</h3>
                 <ul class="leader-list">
@@ -102,6 +117,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
