@@ -110,3 +110,4 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
     .terminal-container, .license-grid { grid-template-columns: 1fr; gap: 40px;}
     .terminal-container { padding: 40px; }
 }
+/* God Mode 11.0 Backup: The $10k Agency UI Lock *
