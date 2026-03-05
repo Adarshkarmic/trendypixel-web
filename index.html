@@ -12,28 +12,93 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
     <nav>
         <div class="logo">TRENDY<span>PIXEL</span></div>
-        <a href="#affiliate" class="nav-btn">Join Affiliate Hub</a>
+        <div class="nav-links">
+            <a href="#masterplan">The Masterplan</a>
+            <a href="#affiliate" class="btn-gold">Join Affiliate Hub</a>
+        </div>
     </nav>
 
-    <div class="story-container" id="story">
-        <span class="story-label">The Founder's Truth</span>
-        <h1 class="story-title">From 50 Lakh Debt to a 1Cr Empire.</h1>
-        <p class="story-text">
-            I'm Adarsh. At 25, life handed me a choice: fold under massive pressure or build an empire. What started as late-night coding and grit turned into Trendy Pixel. We don't just sell AI-generated art; we supply the ultra-premium ammunition for your digital business. Every 40K+ asset is hand-refined because I know what it takes to build from zero. Join the network.
-        </p>
-        <a href="https://trendypixel.gumroad.com" class="btn-empire" target="_blank">Explore The Vault</a>
-    </div>
+    <section class="hero" id="home">
+        <div class="hero-content gs-reveal">
+            <span class="gold-label">THE FOUNDER'S TRUTH</span>
+            <h1 class="mega-title">From 50 Lakh Debt to a <br><span class="text-glow">1Cr Empire.</span></h1>
+            <p class="hero-desc">
+                I'm Adarsh. At 25, life handed me a choice: fold under massive pressure or build an empire. We don't just sell AI-generated art; we supply the ultra-premium ammunition for your digital business. Every 40K+ asset is hand-refined.
+            </p>
+            <a href="https://trendypixel.gumroad.com" target="_blank" class="btn-primary">Explore The Vault</a>
+        </div>
+    </section>
 
-    <div class="ambient-glow"></div>
+    <section class="masterplan" id="masterplan">
+        <div class="section-header gs-reveal">
+            <h2>The Masterplan</h2>
+            <p>We are supplying the ammunition for your digital and physical product empire.</p>
+        </div>
 
-    <div class="dialer-container">
-        <div class="dialer-wheel" id="wheel">
+        <div class="bento-grid">
+            <div class="bento-box box-large gs-reveal">
+                <h3>Our Mission</h3>
+                <p>40,000+ sales worldwide. 1 Crore in value generated for our reseller network. Build your business on our foundation with zero upfront investment.</p>
+                <div class="stats-row">
+                    <div class="stat"><h4>25-45%</h4><span>Commission</span></div>
+                    <div class="stat"><h4>8K</h4><span>Max Resolution</span></div>
+                    <div class="stat"><h4>100%</h4><span>Commercial Rights</span></div>
+                </div>
             </div>
-    </div>
-    
-    <div class="scroll-instruction">Scroll down to rotate vault</div>
+            <div class="bento-box box-small img-box gs-reveal" style="background-image: url('https://images.unsplash.com/photo-1594046243098-0fceea9d451e?q=80&w=600');">
+                <div class="box-overlay">
+                    <h4>Botanical Canvas</h4>
+                    <span>Minimalist plant illustrations</span>
+                </div>
+            </div>
+            <div class="bento-box box-small img-box gs-reveal" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600');">
+                <div class="box-overlay">
+                    <h4>Streetwear & Apparel</h4>
+                    <span>High-DPI designs ready for merch</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="affiliate-hub" id="affiliate">
+        <div class="section-header gs-reveal">
+            <h2 class="text-glow">Affiliate Programme</h2>
+            <p>Earn 25-45% Commission. Monthly Leaderboard Resets.</p>
+        </div>
+
+        <div class="affiliate-wrapper gs-reveal">
+            <div class="glass-panel form-side">
+                <h3>Join the Royal Network</h3>
+                <p class="muted">Fill details to get your unique license ID and secure your spot.</p>
+                <form id="licenseForm">
+                    <input type="text" id="userName" placeholder="Enter Full Name" required>
+                    <input type="email" id="userEmail" placeholder="Enter Email Address" required>
+                    <button type="submit" class="btn-primary full-width">Generate My License</button>
+                </form>
+
+                <div id="licenseView" class="license-card" style="display:none;">
+                    <h5>OFFICIAL AUTHORIZED LICENSE</h5>
+                    <p>ID: <span id="idDisplay" class="gold-text"></span></p>
+                    <p>HOLDER: <span id="nameDisplay"></span></p>
+                    <small>Redirecting to Gumroad...</small>
+                </div>
+            </div>
+
+            <div class="glass-panel leaderboard-side">
+                <h3>Top Sellers</h3>
+                <ul class="leader-list">
+                    <li><span class="rank">1</span> Rahul K. <span class="score">45 Sales</span></li>
+                    <li><span class="rank">2</span> Priya S. <span class="score">32 Sales</span></li>
+                    <li><span class="rank">3</span> Adarsh S. <span class="score">28 Sales</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

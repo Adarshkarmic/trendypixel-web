@@ -1,49 +1,89 @@
-/* --- ULTRA PREMIUM CSS --- */
 :root {
-    --bg-obsidian: #050505;
-    --gold-raw: #D4AF37;
-    --text-main: #EAEAEA;
-    --text-muted: #888888;
+    --bg-deep: #0a0514;
+    --purple-glow: #3c1053;
+    --gold: #D4AF37;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(212, 175, 55, 0.15);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; cursor: none; }
-body { background-color: var(--bg-obsidian); color: var(--text-main); overflow-x: hidden; height: 100vh; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; cursor: none; scroll-behavior: smooth; }
+body { background-color: var(--bg-deep); color: var(--text-main); overflow-x: hidden; }
 
-/* Custom Cursor */
-.cursor { width: 10px; height: 10px; background: var(--gold-raw); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: transform 0.2s ease; }
-.cursor-follower { width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: 0.15s ease-out; }
+/* Magic Cursor */
+.cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s; }
+.cursor-follower { width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: 0.2s ease-out; }
 
-/* Navigation */
-nav { position: fixed; top: 0; width: 100%; padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; }
-.logo span { color: var(--gold-raw); }
-.nav-btn { background: transparent; border: 1px solid var(--text-muted); color: var(--text-main); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-.nav-btn:hover { border-color: var(--gold-raw); color: var(--gold-raw); }
+/* Background Orbs (For that rich, deep look) */
+.bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.6; animation: float 15s infinite alternate; }
+.orb-1 { width: 50vw; height: 50vw; background: var(--purple-glow); top: -10%; left: -10%; }
+.orb-2 { width: 40vw; height: 40vw; background: rgba(212, 175, 55, 0.1); bottom: -10%; right: -10%; animation-delay: -5s; }
+@keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(100px, 50px); } }
 
-/* The Real Story Section */
-.story-container { position: absolute; top: 20%; left: 8%; max-width: 600px; z-index: 10; opacity: 0; transform: translateY(30px); }
-.story-label { color: var(--gold-raw); font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; display: block; }
-.story-title { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 30px; }
-.story-text { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
+/* Nav */
+nav { position: fixed; top: 0; width: 100%; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(10, 5, 20, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
+.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 2px; }
+.logo span { color: var(--gold); }
+.nav-links a { color: var(--text-main); text-decoration: none; margin-left: 30px; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.btn-gold { border: 1px solid var(--gold); padding: 10px 25px; border-radius: 50px; color: var(--gold) !important; }
+.btn-gold:hover { background: var(--gold); color: #000 !important; }
 
-.btn-empire { background: var(--gold-raw); color: #000; padding: 15px 40px; border-radius: 50px; font-weight: 800; text-decoration: none; display: inline-block; transition: 0.3s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-.btn-empire:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(212, 175, 55, 0.4); }
+/* Typography & Buttons */
+.gold-label { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; display: block; font-weight: 800; }
+.mega-title { font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 30px; }
+.text-glow { background: linear-gradient(45deg, #fff, var(--gold)); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+.hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 650px; line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
+.btn-primary { background: linear-gradient(45deg, #d4af37, #aa8621); color: #000; padding: 18px 45px; border-radius: 50px; font-weight: 800; text-decoration: none; display: inline-block; transition: 0.3s; border: none; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5); }
+.full-width { width: 100%; margin-top: 10px; }
 
-/* God Level Half-Dialer Bottom UI */
-.dialer-container { position: absolute; bottom: -200px; left: 50%; width: 1200px; height: 1200px; margin-left: -600px; border-radius: 50%; border-top: 1px solid rgba(255,255,255,0.05); z-index: 5; }
-.dialer-wheel { position: absolute; width: 100%; height: 100%; transform-origin: center center; }
+/* Sections Common */
+section { padding: 150px 8% 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.section-header { margin-bottom: 60px; }
+.section-header h2 { font-size: 3rem; margin-bottom: 15px; }
+.section-header p { color: var(--text-muted); font-size: 1.1rem; }
 
-/* Product Cards */
-.product-card { position: absolute; left: 50%; top: 0; width: 280px; height: 380px; margin-left: -140px; margin-top: -190px; background: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; transform-origin: center 790px; transition: 0.4s; text-decoration: none; color: white; display: block;}
-.product-card:hover { border-color: var(--gold-raw); box-shadow: 0 -10px 30px rgba(212, 175, 55, 0.15); }
+/* Bento Grid (The Masterplan) */
+.bento-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+.bento-box { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 30px; padding: 40px; backdrop-filter: blur(20px); transition: 0.4s; }
+.bento-box:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+.box-large h3 { font-size: 2.2rem; color: var(--gold); margin-bottom: 20px; }
+.box-large p { color: var(--text-muted); line-height: 1.7; margin-bottom: 40px; font-size: 1.1rem; }
+.stats-row { display: flex; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; }
+.stat h4 { font-size: 2.5rem; color: #fff; line-height: 1; }
+.stat span { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
 
-.card-img { width: 100%; height: 60%; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.card-info { padding: 20px; text-align: center; }
-.card-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
-.card-price { color: var(--gold-raw); font-size: 1.1rem; font-weight: 500; }
+/* Image Boxes */
+.img-box { padding: 0; background-size: cover; background-position: center; position: relative; overflow: hidden; min-height: 350px; }
+.box-overlay { position: absolute; bottom: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+.box-overlay h4 { font-size: 1.4rem; margin-bottom: 5px; }
+.box-overlay span { color: var(--text-muted); font-size: 0.9rem; }
 
-/* Instruction & Ambient Glow */
-.scroll-instruction { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: var(--text-muted); font-size: 0.8rem; letter-spacing: 3px; z-index: 20; text-transform: uppercase; animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+/* Affiliate Hub (60/40) */
+.affiliate-wrapper { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
+.glass-panel { background: rgba(20, 10, 30, 0.4); border: 1px solid var(--glass-border); border-radius: 30px; padding: 50px; backdrop-filter: blur(20px); }
+.glass-panel h3 { font-size: 2rem; margin-bottom: 10px; color: var(--gold); }
+.muted { color: var(--text-muted); margin-bottom: 30px; }
 
-.ambient-glow { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 300px; background: radial-gradient(ellipse at bottom, rgba(212, 175, 55, 0.15) 0%, rgba(5,5,5,0) 70%); z-index: 1; pointer-events: none; }
+input { width: 100%; padding: 20px; margin-bottom: 20px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; color: #fff; font-size: 1rem; transition: 0.3s; outline: none; }
+input:focus { border-color: var(--gold); background: rgba(0,0,0,0.8); }
+
+/* License Card */
+.license-card { margin-top: 30px; padding: 25px; border: 2px dashed var(--gold); border-radius: 15px; background: rgba(212, 175, 55, 0.05); text-align: center; }
+.gold-text { color: var(--gold); font-weight: 800; letter-spacing: 1px; }
+
+/* Leaderboard */
+.leader-list { list-style: none; margin-top: 30px; }
+.leader-list li { display: flex; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1.1rem; }
+.rank { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-right: 20px; width: 30px; text-align: center; }
+.score { margin-left: auto; color: var(--text-muted); font-size: 0.95rem; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .bento-grid, .affiliate-wrapper { grid-template-columns: 1fr; }
+    .stats-row { flex-wrap: wrap; }
+    .cursor, .cursor-follower { display: none; }
+    * { cursor: auto; }
+}
