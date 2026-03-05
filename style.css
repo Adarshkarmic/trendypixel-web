@@ -11,7 +11,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
 body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrope', sans-serif; overflow-x: hidden; }
 
-/* CURSOR & PRELOADER */
+/* --- CURSOR & PRELOADER --- */
 .cursor { width: 8px; height: 8px; background: var(--text-main); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference;}
 .cursor-follower { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background 0.3s; }
 .cursor-follower.active { width: 60px; height: 60px; background: rgba(255, 255, 255, 0.1); border-color: transparent; backdrop-filter: blur(2px); }
@@ -21,7 +21,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .progress-bar { width: 300px; height: 2px; background: #333; overflow: hidden; }
 .progress { width: 0%; height: 100%; background: var(--gumroad-pink); }
 
-/* NAV & HERO */
+/* --- NAV & HERO --- */
 .agency-nav { position: fixed; top: 0; width: 100%; padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; mix-blend-mode: difference; }
 .logo { font-family: 'Oswald', sans-serif; font-size: 1.8rem; letter-spacing: 2px; font-weight: 700; }
 .logo span { color: var(--gumroad-pink); }
@@ -38,7 +38,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .btn-primary { background: var(--gumroad-pink); color: #fff; padding: 18px 40px; text-decoration: none; font-weight: 800; letter-spacing: 1px; font-size: 1rem; display: inline-block; transition: 0.3s; }
 .btn-primary:hover { background: #fff; color: #000; }
 
-/* TRIPTYCH HORIZONTAL SCROLL & SPLIT EFFECT */
+/* --- TRIPTYCH HORIZONTAL SCROLL & SPLIT EFFECT --- */
 .horizontal-section { overflow: hidden; width: 100vw; background: var(--bg-pure); }
 .horizontal-container { display: flex; height: 100vh; }
 .h-panel { width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 5%; flex-shrink: 0;}
@@ -60,7 +60,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .prod-details { display: flex; justify-content: space-between; align-items: center; font-size: 1.5rem; font-weight: 800; }
 .prod-details span { color: var(--text-muted); font-size: 1.2rem; font-weight: 500;}
 
-/* BUNDLES GRID SECTION */
+/* --- BUNDLES GRID SECTION --- */
 .bundles-section { padding: 150px 5%; background: var(--bg-panel); }
 .text-center { text-align: center; }
 .section-heading h2 { font-family: 'Oswald', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 10px; }
@@ -71,7 +71,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .bundle-info { padding: 25px; }
 .bundle-info h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 700; }
 
-/* TERMINAL & FOOTER */
+/* --- TERMINAL & FOOTER --- */
 .affiliate-terminal { padding: 150px 5%; }
 .terminal-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; background: var(--bg-panel); border: 1px solid var(--border); border-radius: 20px; padding: 80px; }
 .terminal-left h2 { font-family: 'Oswald', sans-serif; font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }

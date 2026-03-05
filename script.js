@@ -1,18 +1,67 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 1. YOUR ACTUAL GUMROAD DATA (SYNCED) ---
+// --- 1. YOUR GUMROAD DATA (SYNCED) ---
+// Yahan apne real Gumroad links aur image URLs update kar lena
 const triptychData = [
-    { title: "Cosmic Shiva Triptych", sub: "8K High Res", price: "$9+", img: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1000", link: "https://trendypixel.gumroad.com/l/shiva" },
-    { title: "KALI INFERNO Triptych", sub: "4K Digital Download", price: "$9", img: "https://images.unsplash.com/photo-1550895030-823330fc2551?q=80&w=1000", link: "https://trendypixel.gumroad.com/l/kali" },
-    { title: "Hanuman Sunrise Triptych", sub: "3 Piece Digital Art", price: "$9+", img: "https://images.unsplash.com/photo-1518382473043-f42ecb7bb26a?q=80&w=1000", link: "https://trendypixel.gumroad.com/l/hanuman" },
-    { title: "Neon Night Drive Triptych", sub: "Cyberpunk Porsche City", price: "$9", img: "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1000", link: "https://trendypixel.gumroad.com/l/neon" },
-    { title: "Cosmic Trio: 2026 Vault", sub: "Shiva, Krishna, Hanuman", price: "$19", img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=1000", link: "https://trendypixel.gumroad.com/l/trio" }
+    { 
+        title: "Cosmic Shiva Triptych", 
+        sub: "8K High Res", 
+        price: "$12+", 
+        img: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1000", // Replace with real Shiva image
+        link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" 
+    },
+    { 
+        title: "KALI INFERNO Triptych", 
+        sub: "4K Digital Download", 
+        price: "$9", 
+        img: "https://images.unsplash.com/photo-1550895030-823330fc2551?q=80&w=1000", 
+        link: "https://trendypixel.gumroad.com/l/kali" 
+    },
+    { 
+        title: "Hanuman Sunrise Triptych", 
+        sub: "3 Piece Digital Art", 
+        price: "$9+", 
+        img: "https://images.unsplash.com/photo-1518382473043-f42ecb7bb26a?q=80&w=1000", 
+        link: "https://trendypixel.gumroad.com/l/hanuman" 
+    },
+    { 
+        title: "Neon Night Drive Triptych", 
+        sub: "Cyberpunk Porsche City", 
+        price: "$9", 
+        img: "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1000", 
+        link: "https://trendypixel.gumroad.com/l/neon" 
+    },
+    { 
+        title: "Cosmic Trio: 2026 Vault", 
+        sub: "Shiva, Krishna, Hanuman", 
+        price: "$19", 
+        img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=1000", 
+        link: "https://trendypixel.gumroad.com/l/trio" 
+    }
 ];
 
 const bundleData = [
-    { title: "Y2K Retro Neon Bundle", sub: "50 Posters | POD Ready", price: "$11.99", img: "https://images.unsplash.com/photo-1550895030-823330fc2551?q=80&w=800", link: "https://trendypixel.gumroad.com/l/y2k" },
-    { title: "Christmas Dopamine Decor", sub: "12 Geometric Prints", price: "$11.99", img: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800", link: "https://trendypixel.gumroad.com/l/christmas" },
-    { title: "Gothmas Christmas Art", sub: "18 Gothic Designs", price: "$11.99", img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800", link: "https://trendypixel.gumroad.com/l/gothmas" }
+    { 
+        title: "Y2K Retro Neon Bundle", 
+        sub: "50 Posters | POD Ready", 
+        price: "$11.99", 
+        img: "https://images.unsplash.com/photo-1550895030-823330fc2551?q=80&w=800", 
+        link: "https://trendypixel.gumroad.com/l/y2k" 
+    },
+    { 
+        title: "Christmas Dopamine Decor", 
+        sub: "12 Geometric Prints", 
+        price: "$11.99", 
+        img: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800", 
+        link: "https://trendypixel.gumroad.com/l/christmas" 
+    },
+    { 
+        title: "Gothmas Christmas Art", 
+        sub: "18 Gothic Designs", 
+        price: "$11.99", 
+        img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800", 
+        link: "https://trendypixel.gumroad.com/l/gothmas" 
+    }
 ];
 
 // --- 2. INJECT DATA INTO HTML ---
@@ -62,15 +111,23 @@ function renderProducts() {
     }
 }
 
-// --- 3. INITIALIZE ANIMATIONS (AFTER LOAD) ---
+// --- 3. INITIALIZE ANIMATIONS & SCROLL (AFTER LOAD) ---
 window.addEventListener("load", () => {
+    // Pehle products inject karo
     renderProducts();
 
+    // Gumroad script ko refresh karo taaki naye generated buttons kaam karein
+    if (window.GumroadOverlay) {
+        window.GumroadOverlay.refresh();
+    }
+
+    // Preloader Animation
     const tl = gsap.timeline();
     tl.to(".progress", { width: "100%", duration: 1, ease: "power3.inOut" })
       .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" })
       .from(".hero-kicker, .hero-title, .hero-desc-box, .hero-actions", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 });
 
+    // Smooth Scrolling (Lenis)
     const lenis = new Lenis({ duration: 1.2, smooth: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
@@ -78,17 +135,20 @@ window.addEventListener("load", () => {
     gsap.ticker.add((time)=>{ lenis.raf(time * 1000) });
     gsap.ticker.lagSmoothing(0, 0);
 
+    // Horizontal Scroll Trigger
     setTimeout(() => {
-        const horizontalContainer = document.getElementById("horizontal-container");
-        if(horizontalContainer) {
-            horizontalContainer.style.width = (horizontalContainer.children.length * 100) + "vw";
-            gsap.to(horizontalContainer, {
-                x: () => -(horizontalContainer.scrollWidth - window.innerWidth) + "px",
+        const horizontalTrack = document.getElementById("horizontal-track");
+        if(horizontalTrack) {
+            // Track ki actual width calculate karke parent ko assign karo
+            const totalWidth = horizontalTrack.scrollWidth;
+            
+            gsap.to(horizontalTrack, {
+                x: () => -(totalWidth - window.innerWidth) + "px",
                 ease: "none",
                 scrollTrigger: {
                     trigger: "#triptych-vault",
                     start: "top top",
-                    end: () => "+=" + horizontalContainer.scrollWidth,
+                    end: () => "+=" + totalWidth,
                     pin: true,
                     scrub: 1,
                     invalidateOnRefresh: true
@@ -96,8 +156,9 @@ window.addEventListener("load", () => {
             });
         }
         ScrollTrigger.refresh();
-    }, 100);
+    }, 200);
 
+    // Bundles fade-in reveal
     const revealElements = document.querySelectorAll('.gs-reveal');
     revealElements.forEach((elem) => {
         gsap.fromTo(elem, 
@@ -137,6 +198,10 @@ if(form) {
         document.getElementById('idDisplay').innerText = uniqueID;
         document.getElementById('licenseView').style.display = 'block';
         gsap.fromTo('#licenseView', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 });
-        setTimeout(() => { window.location.href = "https://trendypixel.gumroad.com/affiliates"; }, 3500);
+        
+        // Redirect to Gumroad affiliate page after 3.5s
+        setTimeout(() => { 
+            window.location.href = "https://trendypixel.gumroad.com/affiliates"; 
+        }, 3500);
     });
 }
