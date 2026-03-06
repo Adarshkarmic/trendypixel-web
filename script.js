@@ -6,7 +6,6 @@ window.scrollTo(0, 0);
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 1. TRIPTYCH DATA ---
 const triptychData = [
     { title: "Cosmic Shiva Triptych", sub: "8K High Res Digital Download", price: "$9+", img: "product_images/cosmic shiva.png", link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" },
     { title: "Hanuman Sunrise Triptych", sub: "4K Digital Wall Art", price: "$9+", img: "product_images/hanuman.png", link: "https://trendypixel.gumroad.com/l/Hanuman-Sunrise-Triptych" },
@@ -17,7 +16,6 @@ const triptychData = [
     { title: "Neon Cyberpunk Porsche", sub: "4K Digital Download", price: "$9+", img: "product_images/porsche triptych.png", link: "https://trendypixel.gumroad.com/l/Porsche-City-Triptych" }
 ];
 
-// --- 2. BUNDLES DATA ---
 const bundleData = [
     { title: "Cafécore Wall Art Bundle", sub: "60 Designs | POD Ready", price: "$11.99", img: "https://public-files.gumroad.com/fl96pjtnaqq1s3eizvtpwayta72m", link: "https://trendypixel.gumroad.com/l/Cafecore-Wall-Art-Bundle" },
     { title: "Botanical Wall Art Bundle", sub: "50+ Minimal Plant Illustrations", price: "$11.99", img: "https://public-files.gumroad.com/wo5v0mrwb1ng09p1hvihb4ofwl1y", link: "https://trendypixel.gumroad.com/l/Botanical-Wall-Art-Bundle" },
@@ -27,7 +25,6 @@ const bundleData = [
     { title: "Gothmas Elegance Wall Art", sub: "18 Gothic Designs | POD Ready", price: "$11.99", img: "https://public-files.gumroad.com/51g7c51n0cbhrwqv31tbvz12op1v", link: "https://trendypixel.gumroad.com/l/Gothic-Christmas-Wall-Art-Bundle" }
 ];
 
-// --- 3. INJECT DATA ---
 function renderProducts() {
     const track = document.getElementById('horizontal-track');
     const bundlesGrid = document.getElementById('bundles-grid');
@@ -76,8 +73,8 @@ function renderProducts() {
     }
 }
 
-// --- 4. INIT ANIMATIONS ---
-window.addEventListener("load", () => {
+// ⚡ MAGIC FIX: Using DOMContentLoaded instead of load 
+document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
 
     if (window.GumroadOverlay) {
@@ -135,7 +132,6 @@ window.addEventListener("load", () => {
     });
 });
 
-// --- 5. CUSTOM CURSOR ---
 const cursor = document.querySelector('.custom-cursor');
 const follower = document.querySelector('.cursor-follower');
 let mouseX = 0, mouseY = 0;
@@ -165,7 +161,6 @@ document.addEventListener('mouseout', (e) => {
     }
 });
 
-// --- 6. AFFILIATE TERMINAL ---
 const form = document.getElementById('licenseForm');
 if(form) {
     form.addEventListener('submit', function (e) {
