@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 const triptychData = [
     { 
         title: "Cosmic Shiva Triptych", 
-        sub: "8K High Res Digital Download", 
+        sub: "4K High Res Digital Download", 
         price: "$9+", 
         img: "product_images/cosmic shiva.png", // Exact naam match kar diya
         link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" 
