@@ -101,3 +101,34 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
     .prod-card { width: 85vw; }
     .terminal-container { grid-template-columns: 1fr; padding: 40px; }
 }
+
+
+/* --- CYBER MARQUEE --- */
+.marquee-wrapper {
+    background: var(--gumroad-pink);
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    border-top: 1px solid var(--text-main);
+    border-bottom: 1px solid var(--text-main);
+    z-index: 10;
+    position: relative;
+}
+.marquee-track {
+    display: flex;
+    animation: scrollMarquee 20s linear infinite;
+}
+.marquee-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 0 40px;
+    letter-spacing: 3px;
+}
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
