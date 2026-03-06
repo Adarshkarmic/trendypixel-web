@@ -6,6 +6,7 @@ window.scrollTo(0, 0);
 
 gsap.registerPlugin(ScrollTrigger);
 
+// --- PRODUCT DATA (AS SPECIFIED) ---
 const triptychData = [
     { title: "Cosmic Shiva Triptych", sub: "8K High Res Digital Download", price: "$9+", img: "product_images/cosmic shiva.png", link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" },
     { title: "Hanuman Sunrise Triptych", sub: "4K Digital Wall Art", price: "$9+", img: "product_images/hanuman.png", link: "https://trendypixel.gumroad.com/l/Hanuman-Sunrise-Triptych" },
@@ -56,7 +57,7 @@ function renderProducts() {
         bundleData.forEach((item) => {
             const card = document.createElement('a');
             card.href = item.link;
-            card.className = 'bundle-card'; // GSAP will target this for stack effect
+            card.className = 'bundle-card';
             card.setAttribute('data-gumroad-overlay-checkout', 'true');
             card.innerHTML = `
                 <div class="bundle-img-container">
@@ -75,35 +76,41 @@ function renderProducts() {
 
 document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
-
-    if (window.GumroadOverlay) {
-        window.GumroadOverlay.refresh();
-    }
+    if (window.GumroadOverlay) window.GumroadOverlay.refresh();
 
     const tl = gsap.timeline();
     tl.to(".progress", { width: "100%", duration: 1, ease: "power3.inOut" })
-      .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" })
-      .from(".hero-kicker, .hero-title, .hero-desc-box, .hero-actions", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 });
+      .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" });
 
     const lenis = new Lenis({ duration: 1.2, smooth: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time)=>{ lenis.raf(time * 1000) });
-    gsap.ticker.lagSmoothing(0, 0);
+
+    // --- COLOR SYNC LOGIC ---
+    window.addEventListener('scroll', () => {
+        const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+        const aurora = document.querySelector('.aurora-bg');
+        if (aurora) {
+            const x1 = 10 + (scrollPercent * 40);
+            const x2 = 90 - (scrollPercent * 40);
+            aurora.style.background = `
+                radial-gradient(circle at ${x1}% 10%, rgba(255, 0, 128, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at ${x2}% 90%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.12) 0%, transparent 70%)
+            `;
+        }
+    });
 
     setTimeout(() => {
-        // Triptych Scroll
         const horizontalTrack = document.getElementById("horizontal-track");
         if(horizontalTrack) {
-            const totalWidth = horizontalTrack.scrollWidth;
             gsap.to(horizontalTrack, {
-                x: () => -(totalWidth - window.innerWidth) + "px",
+                x: () => -(horizontalTrack.scrollWidth - window.innerWidth) + "px",
                 ease: "none",
                 scrollTrigger: {
                     trigger: "#triptych-vault",
                     start: "top top",
-                    end: () => "+=" + totalWidth,
+                    end: () => "+=" + horizontalTrack.scrollWidth,
                     pin: true,
                     scrub: 1,
                     invalidateOnRefresh: true
@@ -111,61 +118,28 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // --- THE MAGIC: Bundle Stacking & Rotation Effect ---
         const bundleCards = gsap.utils.toArray('.bundle-card');
         bundleCards.forEach((card, i) => {
-            if (i === bundleCards.length - 1) return; // Skip last card
-            let rotationVal = (i % 2 === 0) ? -2 : 2; 
+            if (i === bundleCards.length - 1) return;
             gsap.to(card, {
-                scale: 0.92, 
-                opacity: 0.4, 
-                rotationZ: rotationVal,
-                scrollTrigger: {
-                    trigger: bundleCards[i + 1], 
-                    start: "top 85%", 
-                    end: "top 15%", 
-                    scrub: true,
-                }
+                scale: 0.92, opacity: 0.4, rotationZ: (i % 2 === 0 ? -2 : 2),
+                scrollTrigger: { trigger: bundleCards[i + 1], start: "top 85%", end: "top 15%", scrub: true }
             });
         });
-
         ScrollTrigger.refresh();
     }, 200);
-
-    const revealElements = document.querySelectorAll('.gs-reveal');
-    revealElements.forEach((elem) => {
-        gsap.fromTo(elem, { autoAlpha: 0, y: 50 }, { duration: 1, autoAlpha: 1, y: 0, ease: "power3.out", scrollTrigger: { trigger: elem, start: "top 85%" } });
-    });
 });
 
+// CURSOR
 const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.cursor-follower');
-
 document.addEventListener('mousemove', (e) => {
     gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
     gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.15 });
 });
-
 document.addEventListener('mouseover', (e) => {
-    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.prod-card') || e.target.closest('.bundle-card')) {
-        follower.classList.add('active');
-    }
+    if(e.target.closest('a') || e.target.closest('button')) follower.classList.add('active');
 });
 document.addEventListener('mouseout', (e) => {
-    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.prod-card') || e.target.closest('.bundle-card')) {
-        follower.classList.remove('active');
-    }
+    if(e.target.closest('a') || e.target.closest('button')) follower.classList.remove('active');
 });
-
-const form = document.getElementById('licenseForm');
-if(form) {
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const masterID = "TP-VIP-B2B-2026";
-        document.getElementById('nameDisplay').innerText = document.getElementById('userName').value;
-        document.getElementById('idDisplay').innerText = masterID;
-        document.getElementById('licenseView').style.display = 'block';
-        gsap.fromTo('#licenseView', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 });
-        setTimeout(() => { window.location.href = "https://trendypixel.gumroad.com/affiliates"; }, 3500);
-    });
-}
