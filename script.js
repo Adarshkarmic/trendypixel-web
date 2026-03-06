@@ -49,7 +49,7 @@ const triptychData = [
         sub: "4K Digital Download", 
         price: "$9+", 
         img: "product_images/porsche triptych.png", 
-        link: "https://trendypixel.gumroad.com/l/Porsche-City-Triptych" 
+        link: "https://gum.new/gum/cmmf2u1nr000r04l5d6n2curo" 
     }
 ];
 
