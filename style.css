@@ -29,7 +29,7 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
 .nav-btn-solid { background: var(--text-main); color: var(--bg-pure) !important; padding: 10px 20px; border-radius: 50px; }
 
-.hero-massive { min-height: 100vh; display: flex; align-items: center; padding: 150px 5% 50px; }
+.hero-massive { min-height: 75vh; display: flex; align-items: center; padding: 120px 5% 20px; }
 .hero-inner { z-index: 2; max-width: 1200px; }
 .hero-kicker { color: var(--gumroad-pink); font-size: 1rem; letter-spacing: 5px; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
 .hero-title { font-family: 'Oswald', sans-serif; font-size: clamp(3.5rem, 7vw, 7rem); line-height: 1; margin-bottom: 40px; text-transform: uppercase; }
@@ -177,4 +177,43 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
     .bundle-info { width: 100%; padding: 30px; gap: 15px; align-items: center; text-align: center; }
     
     .terminal-container { grid-template-columns: 1fr; padding: 40px; }
+}
+
+/* =========================================
+   ULTRA-PREMIUM CROSS MARQUEE
+========================================= */
+.cross-marquee-section {
+    position: relative;
+    padding: 100px 0;
+    background: var(--bg-panel);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.angled-left {
+    transform: rotate(-3deg) scale(1.1);
+    background: var(--gumroad-pink);
+    border: none;
+    box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4);
+    z-index: 2;
+}
+
+.angled-right {
+    transform: rotate(2deg) scale(1.1);
+    background: var(--text-main); /* White background for contrast */
+    margin-top: -30px; /* Dono ko overlap karne ke liye */
+    border: none;
+    z-index: 1;
+}
+
+.angled-right .dark-text {
+    color: var(--bg-pure); /* White patti par black text */
+}
+
+/* Reverse Animation for the second track */
+.marquee-track.reverse {
+    animation-direction: reverse;
+    animation-duration: 25s; /* Thoda slow/fast offset premium lagta hai */
 }
