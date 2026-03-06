@@ -57,27 +57,49 @@ const triptychData = [
 ];
 
 
+// --- 2. YOUR BUNDLES DATA (EVERGREEN COLLECTION) ---
 const bundleData = [
     { 
-        title: "Y2K Retro Neon Bundle", 
+        title: "Cafécore Wall Art Bundle", 
+        sub: "60 Designs | POD Ready", 
+        price: "$11.99", 
+        img: "https://public-files.gumroad.com/fl96pjtnaqq1s3eizvtpwayta72m",
+        link: "https://trendypixel.gumroad.com/l/Cafecore-Wall-Art-Bundle" 
+    },
+    { 
+        title: "Botanical Wall Art Bundle", 
+        sub: "50+ Minimal Plant Illustrations", 
+        price: "$11.99", 
+        img: "https://public-files.gumroad.com/wo5v0mrwb1ng09p1hvihb4ofwl1y", // 👈 Gumroad image address yahan daalo
+        link: "https://trendypixel.gumroad.com/l/Botanical-Wall-Art-Bundle" 
+    },
+    { 
+        title: "Y2K Retro Neon Wall Art Bundle", 
         sub: "50 Posters | POD Ready", 
         price: "$11.99", 
-        img: "https://images.unsplash.com/photo-1550895030-823330fc2551?q=80&w=800", 
-        link: "https://trendypixel.gumroad.com/l/y2k" 
+        img: "https://public-files.gumroad.com/bnjyav8yndd6hd1rc1hf47feqrm4", // 👈 Gumroad image address yahan daalo
+        link: "https://trendypixel.gumroad.com/l/Y2K-RetroNeonWall-Art-Bundle" 
     },
     { 
         title: "Christmas Dopamine Decor", 
-        sub: "12 Geometric Prints", 
+        sub: "12 Geometric Wall Art Prints", 
         price: "$11.99", 
-        img: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800", 
-        link: "https://trendypixel.gumroad.com/l/christmas" 
+        img: "https://public-files.gumroad.com/fjje7we91bl2kbhrg42jt7fq18un",
+        link: "https://trendypixel.gumroad.com/l/Christmas-DopamineDecor-Bundle" 
     },
     { 
-        title: "Gothmas Christmas Art", 
-        sub: "18 Gothic Designs", 
+        title: "Cozy Christmas Wall Art", 
+        sub: "48 Designs | 4 Aspect Ratios", 
         price: "$11.99", 
-        img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800", 
-        link: "https://trendypixel.gumroad.com/l/gothmas" 
+        img: "https://public-files.gumroad.com/o253urofss48z6cgh53vl4os9svl", // 👈 Gumroad image address yahan daal        
+        link: "https://trendypixel.gumroad.com/l/Nature-Inspired-CozyChristmasWall-Art-Bundle" 
+    },
+    { 
+        title: "Gothmas Elegance Wall Art", 
+        sub: "18 Gothic Designs | POD Ready", 
+        price: "$11.99", 
+        img: "https://public-files.gumroad.com/51g7c51n0cbhrwqv31tbvz12op1v", // 👈 Gumroad image address yahan daalo
+        link: "https://trendypixel.gumroad.com/l/Gothic-Christmas-Wall-Art-Bundle" 
     }
 ];
 
