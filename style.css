@@ -180,11 +180,11 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 }
 
 /* =========================================
-   ULTRA-PREMIUM CROSS MARQUEE
+   SLEEK CROSS MARQUEE (Height Reduced)
 ========================================= */
 .cross-marquee-section {
     position: relative;
-    padding: 100px 0;
+    padding: 60px 0; /* Section ki overall height kam kar di */
     background: var(--bg-panel);
     overflow: hidden;
     display: flex;
@@ -193,27 +193,34 @@ body { background: var(--bg-pure); color: var(--text-main); font-family: 'Manrop
 }
 
 .angled-left {
-    transform: rotate(-3deg) scale(1.1);
+    transform: rotate(-3deg) scale(1.05); /* Scale thoda kam kiya taaki chipke nahi */
     background: var(--gumroad-pink);
     border: none;
-    box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4);
+    box-shadow: 0 5px 20px rgba(255, 0, 128, 0.3);
     z-index: 2;
+    padding: 8px 0; /* Patti ki height kam karne ke liye padding kam ki */
 }
 
 .angled-right {
-    transform: rotate(2deg) scale(1.1);
-    background: var(--text-main); /* White background for contrast */
-    margin-top: -30px; /* Dono ko overlap karne ke liye */
+    transform: rotate(2deg) scale(1.05);
+    background: var(--text-main);
+    margin-top: -20px; /* Overlap adjust kiya naye height ke hisaab se */
     border: none;
     z-index: 1;
+    padding: 8px 0; /* Patti ki height kam karne ke liye padding kam ki */
+}
+
+/* Font size sleek kar diya height kam rakhne ke liye */
+.cross-marquee-section .marquee-text {
+    font-size: 1.1rem !important; 
+    letter-spacing: 2px !important;
 }
 
 .angled-right .dark-text {
-    color: var(--bg-pure); /* White patti par black text */
+    color: var(--bg-pure);
 }
 
-/* Reverse Animation for the second track */
 .marquee-track.reverse {
     animation-direction: reverse;
-    animation-duration: 25s; /* Thoda slow/fast offset premium lagta hai */
+    animation-duration: 25s;
 }
