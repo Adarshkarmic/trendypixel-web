@@ -53,13 +53,7 @@ const triptychData = [
         img: "product_images/porsche triptych.png", 
         link: "https://trendypixel.gumroad.com/l/Porsche-City-Triptych" 
     },
-    { 
-        title: "Cosmic Trio: 2026 Vault", 
-        sub: "Shiva, Krishna, Hanuman", 
-        price: "$39+", 
-        img: "product_images/cosmic trio.png", // NOTE: Ye file bhi VS code me daalni padegi
-        link: "https://trendypixel.gumroad.com/l/trio" // Maine default link rakha hai
-    }
+    
 ];
 
 
