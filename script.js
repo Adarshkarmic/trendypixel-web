@@ -1,9 +1,3 @@
-// FORCE TOP SCROLL ON REFRESH
-if (window.location.hash) {
-    history.replaceState(null, null, window.location.pathname);
-}
-window.scrollTo(0, 0);
-
 gsap.registerPlugin(ScrollTrigger);
 
 const triptychData = [
@@ -53,11 +47,12 @@ function renderProducts() {
     }
 
     if(bundlesGrid) {
-        bundleData.forEach((item) => {
+        bundleData.forEach(item => {
             const card = document.createElement('a');
             card.href = item.link;
-            card.className = 'bundle-card';
+            card.className = 'bundle-card gs-reveal';
             card.setAttribute('data-gumroad-overlay-checkout', 'true');
+            // YAHAN MAGIC HAI: Horizontal layout ke liye structure
             card.innerHTML = `
                 <div class="bundle-img-container">
                     <div class="bundle-img" style="background-image: url('${item.img}')"></div>
@@ -73,7 +68,7 @@ function renderProducts() {
     }
 }
 
-// ⚡ MAGIC FIX: Using DOMContentLoaded instead of load 
+// YAHAN FIX HAI: 'load' ki jagah 'DOMContentLoaded' taaki preloader na atke
 document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
 
@@ -110,54 +105,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
-
-        const bundleCards = gsap.utils.toArray('.bundle-card');
-        bundleCards.forEach((card, i) => {
-            if (i === bundleCards.length - 1) return; 
-            let rotationVal = (i % 2 === 0) ? -2 : 2; 
-            gsap.to(card, {
-                scale: 0.92, opacity: 0.4, rotationZ: rotationVal,
-                scrollTrigger: {
-                    trigger: bundleCards[i + 1], start: "top 85%", end: "top 15%", scrub: true,
-                }
-            });
-        });
-
         ScrollTrigger.refresh();
     }, 200);
 
     const revealElements = document.querySelectorAll('.gs-reveal');
     revealElements.forEach((elem) => {
-        gsap.fromTo(elem, { autoAlpha: 0, y: 50 }, { duration: 1, autoAlpha: 1, y: 0, ease: "power3.out", scrollTrigger: { trigger: elem, start: "top 85%" } });
+        gsap.fromTo(elem, 
+            { autoAlpha: 0, y: 50 }, 
+            { duration: 1, autoAlpha: 1, y: 0, ease: "power3.out", scrollTrigger: { trigger: elem, start: "top 85%" } }
+        );
     });
 });
 
-const cursor = document.querySelector('.custom-cursor');
+const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.cursor-follower');
-let mouseX = 0, mouseY = 0;
-let followerX = 0, followerY = 0;
 
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX; mouseY = e.clientY;
-    if(cursor) cursor.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
+    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
+    gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.15 });
 });
 
-function animateFollower() {
-    followerX += (mouseX - followerX) * 0.15; 
-    followerY += (mouseY - followerY) * 0.15;
-    if(follower) follower.style.transform = `translate(${followerX - 18}px, ${followerY - 18}px)`;
-    requestAnimationFrame(animateFollower);
-}
-animateFollower();
-
 document.addEventListener('mouseover', (e) => {
-    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.prod-card') || e.target.closest('.bundle-card')) {
-        document.body.classList.add('hovering');
+    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.bundle-card') || e.target.closest('.prod-card')) {
+        follower.classList.add('active');
     }
 });
 document.addEventListener('mouseout', (e) => {
-    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.prod-card') || e.target.closest('.bundle-card')) {
-        document.body.classList.remove('hovering');
+    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.bundle-card') || e.target.closest('.prod-card')) {
+        follower.classList.remove('active');
     }
 });
 
@@ -165,11 +140,14 @@ const form = document.getElementById('licenseForm');
 if(form) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const masterID = "TP-VIP-B2B-2026";
+        const masterID = "TP-COMM-B2B-2026";
         document.getElementById('nameDisplay').innerText = document.getElementById('userName').value;
         document.getElementById('idDisplay').innerText = masterID;
         document.getElementById('licenseView').style.display = 'block';
         gsap.fromTo('#licenseView', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 });
-        setTimeout(() => { window.location.href = "https://trendypixel.gumroad.com/affiliates"; }, 3500);
+        
+        setTimeout(() => { 
+            window.location.href = "https://trendypixel.gumroad.com/affiliates"; 
+        }, 3500);
     });
 }
