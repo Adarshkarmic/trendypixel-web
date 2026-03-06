@@ -1,110 +1,37 @@
+// FORCE TOP SCROLL ON REFRESH
+if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname);
+}
+window.scrollTo(0, 0);
+
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 1. YOUR GUMROAD DATA (SYNCED WITH EXACT FILE NAMES & LINKS) ---
+// --- 1. TRIPTYCH DATA ---
 const triptychData = [
-    { 
-        title: "Cosmic Shiva Triptych", 
-        sub: "8K High Res Digital Download", 
-        price: "$9+", 
-        img: "product_images/cosmic shiva.png", 
-        link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" 
-    },
-    { 
-        title: "Hanuman Sunrise Triptych", 
-        sub: "4K Digital Wall Art", 
-        price: "$9+", 
-        img: "product_images/hanuman.png", 
-        link: "https://trendypixel.gumroad.com/l/Hanuman-Sunrise-Triptych" 
-    },
-    { 
-        title: "Cosmic Krishna Triptych", 
-        sub: "4K Digital Download", 
-        price: "$9+", 
-        img: "product_images/cosmic krishna.png", 
-        link: "https://trendypixel.gumroad.com/l/Cosmic-Krishna-Triptych-Wall-Art" 
-    },
-    { 
-        title: "KALI INFERNO Triptych", 
-        sub: "4K Commercial + Resell", 
-        price: "$9+", 
-        img: "product_images/goddess maa kali.png", 
-        link: "https://trendypixel.gumroad.com/l/KALI-Triptych-Wall-Art" 
-    },
-    { 
-        title: "Minimal White Buddha", 
-        sub: "Zen Garden Triptych 4K", 
-        price: "$9+", 
-        img: "product_images/zen garden.png", 
-        link: "https://trendypixel.gumroad.com/l/Buddha-Zen-Garden-Triptych" 
-    },
-    { 
-        title: "Black & Gold Liquid Om", 
-        sub: "4K Digital Wall Art", 
-        price: "$9+", 
-        img: "product_images/om.png", 
-        link: "https://trendypixel.gumroad.com/l/Om-Symbol-Triptych-Digital-Wall-art" 
-    },
-    { 
-        title: "Neon Cyberpunk Porsche", 
-        sub: "4K Digital Download", 
-        price: "$9+", 
-        img: "product_images/porsche triptych.png", 
-        link: "https://gum.new/gum/cmmf2u1nr000r04l5d6n2curo" 
-    }
+    { title: "Cosmic Shiva Triptych", sub: "8K High Res Digital Download", price: "$9+", img: "product_images/cosmic shiva.png", link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" },
+    { title: "Hanuman Sunrise Triptych", sub: "4K Digital Wall Art", price: "$9+", img: "product_images/hanuman.png", link: "https://trendypixel.gumroad.com/l/Hanuman-Sunrise-Triptych" },
+    { title: "Cosmic Krishna Triptych", sub: "4K Digital Download", price: "$9+", img: "product_images/cosmic krishna.png", link: "https://trendypixel.gumroad.com/l/Cosmic-Krishna-Triptych-Wall-Art" },
+    { title: "KALI INFERNO Triptych", sub: "4K Commercial + Resell", price: "$9+", img: "product_images/goddess maa kali.png", link: "https://trendypixel.gumroad.com/l/KALI-Triptych-Wall-Art" },
+    { title: "Minimal White Buddha", sub: "Zen Garden Triptych 4K", price: "$9+", img: "product_images/zen garden.png", link: "https://trendypixel.gumroad.com/l/Buddha-Zen-Garden-Triptych" },
+    { title: "Black & Gold Liquid Om", sub: "4K Digital Wall Art", price: "$9+", img: "product_images/om.png", link: "https://trendypixel.gumroad.com/l/Om-Symbol-Triptych-Digital-Wall-art" },
+    { title: "Neon Cyberpunk Porsche", sub: "4K Digital Download", price: "$9+", img: "product_images/porsche triptych.png", link: "https://trendypixel.gumroad.com/l/Porsche-City-Triptych" }
 ];
 
-// --- 2. YOUR BUNDLES DATA (EVERGREEN COLLECTION) ---
+// --- 2. BUNDLES DATA ---
 const bundleData = [
-    { 
-        title: "Cafécore Wall Art Bundle", 
-        sub: "60 Designs | POD Ready", 
-        price: "$11.99", 
-        img: "https://public-files.gumroad.com/fl96pjtnaqq1s3eizvtpwayta72m",
-        link: "https://trendypixel.gumroad.com/l/Cafecore-Wall-Art-Bundle" 
-    },
-    { 
-        title: "Botanical Wall Art Bundle", 
-        sub: "50+ Minimal Plant Illustrations", 
-        price: "$11.99", 
-        img: "https://public-files.gumroad.com/wo5v0mrwb1ng09p1hvihb4ofwl1y",
-        link: "https://trendypixel.gumroad.com/l/Botanical-Wall-Art-Bundle" 
-    },
-    { 
-        title: "Y2K Retro Neon Wall Art Bundle", 
-        sub: "50 Posters | POD Ready", 
-        price: "$11.99", 
-        img: "https://public-files.gumroad.com/bnjyav8yndd6hd1rc1hf47feqrm4",
-        link: "https://trendypixel.gumroad.com/l/Y2K-RetroNeonWall-Art-Bundle" 
-    },
-    { 
-        title: "Christmas Dopamine Decor", 
-        sub: "12 Geometric Wall Art Prints", 
-        price: "$11.99", 
-        img: "https://public-files.gumroad.com/fjje7we91bl2kbhrg42jt7fq18un",
-        link: "https://trendypixel.gumroad.com/l/Christmas-DopamineDecor-Bundle" 
-    },
-    { 
-        title: "Cozy Christmas Wall Art", 
-        sub: "48 Designs | 4 Aspect Ratios", 
-        price: "$11.99", 
-        img: "https://public-files.gumroad.com/o253urofss48z6cgh53vl4os9svl",       
-        link: "https://trendypixel.gumroad.com/l/Nature-Inspired-CozyChristmasWall-Art-Bundle" 
-    },
-    { 
-        title: "Gothmas Elegance Wall Art", 
-        sub: "18 Gothic Designs | POD Ready", 
-        price: "$11.99", 
-        img: "https://public-files.gumroad.com/51g7c51n0cbhrwqv31tbvz12op1v",
-        link: "https://trendypixel.gumroad.com/l/Gothic-Christmas-Wall-Art-Bundle" 
-    }
+    { title: "Cafécore Wall Art Bundle", sub: "60 Designs | POD Ready", price: "$11.99", img: "https://public-files.gumroad.com/fl96pjtnaqq1s3eizvtpwayta72m", link: "https://trendypixel.gumroad.com/l/Cafecore-Wall-Art-Bundle" },
+    { title: "Botanical Wall Art Bundle", sub: "50+ Minimal Plant Illustrations", price: "$11.99", img: "https://public-files.gumroad.com/wo5v0mrwb1ng09p1hvihb4ofwl1y", link: "https://trendypixel.gumroad.com/l/Botanical-Wall-Art-Bundle" },
+    { title: "Y2K Retro Neon Wall Art Bundle", sub: "50 Posters | POD Ready", price: "$11.99", img: "https://public-files.gumroad.com/bnjyav8yndd6hd1rc1hf47feqrm4", link: "https://trendypixel.gumroad.com/l/Y2K-RetroNeonWall-Art-Bundle" },
+    { title: "Christmas Dopamine Decor", sub: "12 Geometric Wall Art Prints", price: "$11.99", img: "https://public-files.gumroad.com/fjje7we91bl2kbhrg42jt7fq18un", link: "https://trendypixel.gumroad.com/l/Christmas-DopamineDecor-Bundle" },
+    { title: "Cozy Christmas Wall Art", sub: "48 Designs | 4 Aspect Ratios", price: "$11.99", img: "https://public-files.gumroad.com/o253urofss48z6cgh53vl4os9svl", link: "https://trendypixel.gumroad.com/l/Nature-Inspired-CozyChristmasWall-Art-Bundle" },
+    { title: "Gothmas Elegance Wall Art", sub: "18 Gothic Designs | POD Ready", price: "$11.99", img: "https://public-files.gumroad.com/51g7c51n0cbhrwqv31tbvz12op1v", link: "https://trendypixel.gumroad.com/l/Gothic-Christmas-Wall-Art-Bundle" }
 ];
 
-// --- 3. INJECT DATA INTO HTML ---
+// --- 3. INJECT DATA ---
 function renderProducts() {
     const track = document.getElementById('horizontal-track');
     const bundlesGrid = document.getElementById('bundles-grid');
 
-    // Render Triptychs
     if(track) {
         const outroPanel = track.querySelector('.outro-panel');
         triptychData.forEach(item => {
@@ -128,14 +55,12 @@ function renderProducts() {
         });
     }
 
-    // Render Premium Wide Bundles
     if(bundlesGrid) {
-        bundleData.forEach((item, index) => {
+        bundleData.forEach((item) => {
             const card = document.createElement('a');
             card.href = item.link;
             card.className = 'bundle-card';
             card.setAttribute('data-gumroad-overlay-checkout', 'true');
-            // Using Flexbox inside the wide card
             card.innerHTML = `
                 <div class="bundle-img-container">
                     <div class="bundle-img" style="background-image: url('${item.img}')"></div>
@@ -151,7 +76,7 @@ function renderProducts() {
     }
 }
 
-// --- 4. INITIALIZE ANIMATIONS & SCROLL (AFTER LOAD) ---
+// --- 4. INIT ANIMATIONS ---
 window.addEventListener("load", () => {
     renderProducts();
 
@@ -159,13 +84,11 @@ window.addEventListener("load", () => {
         window.GumroadOverlay.refresh();
     }
 
-    // Preloader sequence
     const tl = gsap.timeline();
     tl.to(".progress", { width: "100%", duration: 1, ease: "power3.inOut" })
       .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" })
       .from(".hero-kicker, .hero-title, .hero-desc-box, .hero-actions", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 });
 
-    // Smooth Scrolling Setup (Lenis)
     const lenis = new Lenis({ duration: 1.2, smooth: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
@@ -174,7 +97,6 @@ window.addEventListener("load", () => {
     gsap.ticker.lagSmoothing(0, 0);
 
     setTimeout(() => {
-        // Horizontal Scroll for Triptych Vault
         const horizontalTrack = document.getElementById("horizontal-track");
         if(horizontalTrack) {
             const totalWidth = horizontalTrack.scrollWidth;
@@ -192,23 +114,14 @@ window.addEventListener("load", () => {
             });
         }
 
-        // --- THE MAGIC: Bundle Stacking & Half-Circle Fan Effect ---
         const bundleCards = gsap.utils.toArray('.bundle-card');
         bundleCards.forEach((card, i) => {
-            if (i === bundleCards.length - 1) return; // Skip the last card (it stays on top)
-            
-            // Alternate rotation for the "fan/half-circle" look
-            let rotationVal = (i % 2 === 0) ? -3 : 3; 
-
+            if (i === bundleCards.length - 1) return; 
+            let rotationVal = (i % 2 === 0) ? -2 : 2; 
             gsap.to(card, {
-                scale: 0.9,
-                opacity: 0.3,
-                rotationZ: rotationVal, // Twists the card slightly as the next one covers it
+                scale: 0.92, opacity: 0.4, rotationZ: rotationVal,
                 scrollTrigger: {
-                    trigger: bundleCards[i + 1], // Animation triggered when the NEXT card comes up
-                    start: "top 80%",
-                    end: "top 15%",
-                    scrub: true,
+                    trigger: bundleCards[i + 1], start: "top 85%", end: "top 15%", scrub: true,
                 }
             });
         });
@@ -216,38 +129,31 @@ window.addEventListener("load", () => {
         ScrollTrigger.refresh();
     }, 200);
 
-    // Simple fade reveals
     const revealElements = document.querySelectorAll('.gs-reveal');
     revealElements.forEach((elem) => {
-        gsap.fromTo(elem, 
-            { autoAlpha: 0, y: 50 }, 
-            { duration: 1, autoAlpha: 1, y: 0, ease: "power3.out", scrollTrigger: { trigger: elem, start: "top 85%" } }
-        );
+        gsap.fromTo(elem, { autoAlpha: 0, y: 50 }, { duration: 1, autoAlpha: 1, y: 0, ease: "power3.out", scrollTrigger: { trigger: elem, start: "top 85%" } });
     });
 });
 
-// --- 5. PREMIUM CUSTOM CURSOR LOGIC ---
+// --- 5. CUSTOM CURSOR ---
 const cursor = document.querySelector('.custom-cursor');
 const follower = document.querySelector('.cursor-follower');
 let mouseX = 0, mouseY = 0;
 let followerX = 0, followerY = 0;
 
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    // Core dot strictly follows mouse
+    mouseX = e.clientX; mouseY = e.clientY;
     if(cursor) cursor.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
 });
 
 function animateFollower() {
-    followerX += (mouseX - followerX) * 0.15; // Smooth spring delay
+    followerX += (mouseX - followerX) * 0.15; 
     followerY += (mouseY - followerY) * 0.15;
     if(follower) follower.style.transform = `translate(${followerX - 18}px, ${followerY - 18}px)`;
     requestAnimationFrame(animateFollower);
 }
 animateFollower();
 
-// Cursor interaction with links/cards
 document.addEventListener('mouseover', (e) => {
     if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.prod-card') || e.target.closest('.bundle-card')) {
         document.body.classList.add('hovering');
@@ -259,19 +165,16 @@ document.addEventListener('mouseout', (e) => {
     }
 });
 
-// --- 6. AFFILIATE LOGIC ---
+// --- 6. AFFILIATE TERMINAL ---
 const form = document.getElementById('licenseForm');
 if(form) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const masterID = "TP-COMM-B2B-2026";
+        const masterID = "TP-VIP-B2B-2026";
         document.getElementById('nameDisplay').innerText = document.getElementById('userName').value;
         document.getElementById('idDisplay').innerText = masterID;
         document.getElementById('licenseView').style.display = 'block';
         gsap.fromTo('#licenseView', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 });
-        
-        setTimeout(() => { 
-            window.location.href = "https://trendypixel.gumroad.com/affiliates"; 
-        }, 3500);
+        setTimeout(() => { window.location.href = "https://trendypixel.gumroad.com/affiliates"; }, 3500);
     });
 }
