@@ -1,21 +1,19 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// --- 1. YOUR GUMROAD DATA (SYNCED) ---
-// --- 1. YOUR GUMROAD DATA (SYNCED WITH ALL 8 TRIPTYCHS) ---
 // --- 1. YOUR GUMROAD DATA (SYNCED WITH EXACT FILE NAMES & LINKS) ---
 const triptychData = [
     { 
         title: "Cosmic Shiva Triptych", 
-        sub: "4K High Res Digital Download", 
+        sub: "8K High Res Digital Download", 
         price: "$9+", 
-        img: "product_images/cosmic shiva.png", // Exact naam match kar diya
+        img: "product_images/cosmic shiva.png", 
         link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" 
     },
     { 
         title: "Hanuman Sunrise Triptych", 
         sub: "4K Digital Wall Art", 
         price: "$9+", 
-        img: "product_images/hanuman.png", // NOTE: Ye file VS code me daalni padegi
+        img: "product_images/hanuman.png", 
         link: "https://trendypixel.gumroad.com/l/Hanuman-Sunrise-Triptych" 
     },
     { 
@@ -52,10 +50,8 @@ const triptychData = [
         price: "$9+", 
         img: "product_images/porsche triptych.png", 
         link: "https://trendypixel.gumroad.com/l/Porsche-City-Triptych" 
-    },
-    
+    }
 ];
-
 
 // --- 2. YOUR BUNDLES DATA (EVERGREEN COLLECTION) ---
 const bundleData = [
@@ -70,14 +66,14 @@ const bundleData = [
         title: "Botanical Wall Art Bundle", 
         sub: "50+ Minimal Plant Illustrations", 
         price: "$11.99", 
-        img: "https://public-files.gumroad.com/wo5v0mrwb1ng09p1hvihb4ofwl1y", // 👈 Gumroad image address yahan daalo
+        img: "https://public-files.gumroad.com/wo5v0mrwb1ng09p1hvihb4ofwl1y",
         link: "https://trendypixel.gumroad.com/l/Botanical-Wall-Art-Bundle" 
     },
     { 
         title: "Y2K Retro Neon Wall Art Bundle", 
         sub: "50 Posters | POD Ready", 
         price: "$11.99", 
-        img: "https://public-files.gumroad.com/bnjyav8yndd6hd1rc1hf47feqrm4", // 👈 Gumroad image address yahan daalo
+        img: "https://public-files.gumroad.com/bnjyav8yndd6hd1rc1hf47feqrm4",
         link: "https://trendypixel.gumroad.com/l/Y2K-RetroNeonWall-Art-Bundle" 
     },
     { 
@@ -91,23 +87,24 @@ const bundleData = [
         title: "Cozy Christmas Wall Art", 
         sub: "48 Designs | 4 Aspect Ratios", 
         price: "$11.99", 
-        img: "https://public-files.gumroad.com/o253urofss48z6cgh53vl4os9svl", // 👈 Gumroad image address yahan daal        
+        img: "https://public-files.gumroad.com/o253urofss48z6cgh53vl4os9svl",       
         link: "https://trendypixel.gumroad.com/l/Nature-Inspired-CozyChristmasWall-Art-Bundle" 
     },
     { 
         title: "Gothmas Elegance Wall Art", 
         sub: "18 Gothic Designs | POD Ready", 
         price: "$11.99", 
-        img: "https://public-files.gumroad.com/51g7c51n0cbhrwqv31tbvz12op1v", // 👈 Gumroad image address yahan daalo
+        img: "https://public-files.gumroad.com/51g7c51n0cbhrwqv31tbvz12op1v",
         link: "https://trendypixel.gumroad.com/l/Gothic-Christmas-Wall-Art-Bundle" 
     }
 ];
 
-// --- 2. INJECT DATA INTO HTML ---
+// --- 3. INJECT DATA INTO HTML ---
 function renderProducts() {
     const track = document.getElementById('horizontal-track');
     const bundlesGrid = document.getElementById('bundles-grid');
 
+    // Render Triptychs
     if(track) {
         const outroPanel = track.querySelector('.outro-panel');
         triptychData.forEach(item => {
@@ -131,18 +128,22 @@ function renderProducts() {
         });
     }
 
+    // Render Premium Wide Bundles
     if(bundlesGrid) {
-        bundleData.forEach(item => {
+        bundleData.forEach((item, index) => {
             const card = document.createElement('a');
             card.href = item.link;
-            card.className = 'bundle-card gs-reveal';
+            card.className = 'bundle-card';
             card.setAttribute('data-gumroad-overlay-checkout', 'true');
+            // Using Flexbox inside the wide card
             card.innerHTML = `
-                <div class="gumroad-pink-tag">${item.price}</div>
-                <div class="bundle-img" style="background-image: url('${item.img}')"></div>
+                <div class="bundle-img-container">
+                    <div class="bundle-img" style="background-image: url('${item.img}')"></div>
+                </div>
                 <div class="bundle-info">
                     <h3>${item.title}</h3>
-                    <p style="color: #888;">${item.sub}</p>
+                    <p>${item.sub}</p>
+                    <span class="bundle-price-tag">${item.price}</span>
                 </div>
             `;
             bundlesGrid.appendChild(card);
@@ -150,7 +151,7 @@ function renderProducts() {
     }
 }
 
-// --- 3. INITIALIZE ANIMATIONS & SCROLL (AFTER LOAD) ---
+// --- 4. INITIALIZE ANIMATIONS & SCROLL (AFTER LOAD) ---
 window.addEventListener("load", () => {
     renderProducts();
 
@@ -158,11 +159,13 @@ window.addEventListener("load", () => {
         window.GumroadOverlay.refresh();
     }
 
+    // Preloader sequence
     const tl = gsap.timeline();
     tl.to(".progress", { width: "100%", duration: 1, ease: "power3.inOut" })
       .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" })
       .from(".hero-kicker, .hero-title, .hero-desc-box, .hero-actions", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 });
 
+    // Smooth Scrolling Setup (Lenis)
     const lenis = new Lenis({ duration: 1.2, smooth: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
@@ -171,6 +174,7 @@ window.addEventListener("load", () => {
     gsap.ticker.lagSmoothing(0, 0);
 
     setTimeout(() => {
+        // Horizontal Scroll for Triptych Vault
         const horizontalTrack = document.getElementById("horizontal-track");
         if(horizontalTrack) {
             const totalWidth = horizontalTrack.scrollWidth;
@@ -187,9 +191,32 @@ window.addEventListener("load", () => {
                 }
             });
         }
+
+        // --- THE MAGIC: Bundle Stacking & Half-Circle Fan Effect ---
+        const bundleCards = gsap.utils.toArray('.bundle-card');
+        bundleCards.forEach((card, i) => {
+            if (i === bundleCards.length - 1) return; // Skip the last card (it stays on top)
+            
+            // Alternate rotation for the "fan/half-circle" look
+            let rotationVal = (i % 2 === 0) ? -3 : 3; 
+
+            gsap.to(card, {
+                scale: 0.9,
+                opacity: 0.3,
+                rotationZ: rotationVal, // Twists the card slightly as the next one covers it
+                scrollTrigger: {
+                    trigger: bundleCards[i + 1], // Animation triggered when the NEXT card comes up
+                    start: "top 80%",
+                    end: "top 15%",
+                    scrub: true,
+                }
+            });
+        });
+
         ScrollTrigger.refresh();
     }, 200);
 
+    // Simple fade reveals
     const revealElements = document.querySelectorAll('.gs-reveal');
     revealElements.forEach((elem) => {
         gsap.fromTo(elem, 
@@ -199,32 +226,45 @@ window.addEventListener("load", () => {
     });
 });
 
-// --- 4. MAGNETIC CURSOR ---
-const cursor = document.querySelector('.cursor');
+// --- 5. PREMIUM CUSTOM CURSOR LOGIC ---
+const cursor = document.querySelector('.custom-cursor');
 const follower = document.querySelector('.cursor-follower');
+let mouseX = 0, mouseY = 0;
+let followerX = 0, followerY = 0;
 
 document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
-    gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.15 });
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    // Core dot strictly follows mouse
+    if(cursor) cursor.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
 });
 
+function animateFollower() {
+    followerX += (mouseX - followerX) * 0.15; // Smooth spring delay
+    followerY += (mouseY - followerY) * 0.15;
+    if(follower) follower.style.transform = `translate(${followerX - 18}px, ${followerY - 18}px)`;
+    requestAnimationFrame(animateFollower);
+}
+animateFollower();
+
+// Cursor interaction with links/cards
 document.addEventListener('mouseover', (e) => {
-    if(e.target.closest('a') || e.target.closest('button')) {
-        follower.classList.add('active');
+    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.prod-card') || e.target.closest('.bundle-card')) {
+        document.body.classList.add('hovering');
     }
 });
 document.addEventListener('mouseout', (e) => {
-    if(e.target.closest('a') || e.target.closest('button')) {
-        follower.classList.remove('active');
+    if(e.target.closest('a') || e.target.closest('button') || e.target.closest('.prod-card') || e.target.closest('.bundle-card')) {
+        document.body.classList.remove('hovering');
     }
 });
 
-// --- 5. AFFILIATE LOGIC (Master ID Set) ---
+// --- 6. AFFILIATE LOGIC ---
 const form = document.getElementById('licenseForm');
 if(form) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const masterID = "TP-COMM-B2B-2025";
+        const masterID = "TP-COMM-B2B-2026";
         document.getElementById('nameDisplay').innerText = document.getElementById('userName').value;
         document.getElementById('idDisplay').innerText = masterID;
         document.getElementById('licenseView').style.display = 'block';
