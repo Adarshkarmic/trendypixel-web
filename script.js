@@ -1,44 +1,67 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // --- 1. YOUR GUMROAD DATA (SYNCED) ---
-// Yahan apne real Gumroad links aur image URLs update kar lena
+// --- 1. YOUR GUMROAD DATA (SYNCED WITH ALL 8 TRIPTYCHS) ---
+// --- 1. YOUR GUMROAD DATA (SYNCED WITH EXACT FILE NAMES & LINKS) ---
 const triptychData = [
     { 
         title: "Cosmic Shiva Triptych", 
-        sub: "8K High Res", 
-        price: "$12+", 
-        img: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1000", // Replace with real Shiva image
+        sub: "8K High Res Digital Download", 
+        price: "$9+", 
+        img: "product_images/cosmic shiva.png", // Exact naam match kar diya
         link: "https://trendypixel.gumroad.com/l/Cosmic-Shiva-Triptych-Wall-Art" 
     },
     { 
-        title: "KALI INFERNO Triptych", 
-        sub: "4K Digital Download", 
-        price: "$9", 
-        img: "https://images.unsplash.com/photo-1550895030-823330fc2551?q=80&w=1000", 
-        link: "https://trendypixel.gumroad.com/l/kali" 
-    },
-    { 
         title: "Hanuman Sunrise Triptych", 
-        sub: "3 Piece Digital Art", 
+        sub: "4K Digital Wall Art", 
         price: "$9+", 
-        img: "https://images.unsplash.com/photo-1518382473043-f42ecb7bb26a?q=80&w=1000", 
-        link: "https://trendypixel.gumroad.com/l/hanuman" 
+        img: "product_images/hanuman.png", // NOTE: Ye file VS code me daalni padegi
+        link: "https://trendypixel.gumroad.com/l/Hanuman-Sunrise-Triptych" 
     },
     { 
-        title: "Neon Night Drive Triptych", 
-        sub: "Cyberpunk Porsche City", 
-        price: "$9", 
-        img: "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1000", 
-        link: "https://trendypixel.gumroad.com/l/neon" 
+        title: "Cosmic Krishna Triptych", 
+        sub: "4K Digital Download", 
+        price: "$9+", 
+        img: "product_images/cosmic krishna.png", 
+        link: "https://trendypixel.gumroad.com/l/Cosmic-Krishna-Triptych-Wall-Art" 
+    },
+    { 
+        title: "KALI INFERNO Triptych", 
+        sub: "4K Commercial + Resell", 
+        price: "$9+", 
+        img: "product_images/goddess maa kali.png", 
+        link: "https://trendypixel.gumroad.com/l/KALI-Triptych-Wall-Art" 
+    },
+    { 
+        title: "Minimal White Buddha", 
+        sub: "Zen Garden Triptych 4K", 
+        price: "$9+", 
+        img: "product_images/zen garden.png", 
+        link: "https://trendypixel.gumroad.com/l/Buddha-Zen-Garden-Triptych" 
+    },
+    { 
+        title: "Black & Gold Liquid Om", 
+        sub: "4K Digital Wall Art", 
+        price: "$9+", 
+        img: "product_images/om.png", 
+        link: "https://trendypixel.gumroad.com/l/Om-Symbol-Triptych-Digital-Wall-art" 
+    },
+    { 
+        title: "Neon Cyberpunk Porsche", 
+        sub: "4K Digital Download", 
+        price: "$9+", 
+        img: "product_images/porsche triptych.png", 
+        link: "https://trendypixel.gumroad.com/l/Porsche-City-Triptych" 
     },
     { 
         title: "Cosmic Trio: 2026 Vault", 
         sub: "Shiva, Krishna, Hanuman", 
-        price: "$19", 
-        img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=1000", 
-        link: "https://trendypixel.gumroad.com/l/trio" 
+        price: "$39+", 
+        img: "product_images/cosmic trio.png", // NOTE: Ye file bhi VS code me daalni padegi
+        link: "https://trendypixel.gumroad.com/l/trio" // Maine default link rakha hai
     }
 ];
+
 
 const bundleData = [
     { 
@@ -113,21 +136,17 @@ function renderProducts() {
 
 // --- 3. INITIALIZE ANIMATIONS & SCROLL (AFTER LOAD) ---
 window.addEventListener("load", () => {
-    // Pehle products inject karo
     renderProducts();
 
-    // Gumroad script ko refresh karo taaki naye generated buttons kaam karein
     if (window.GumroadOverlay) {
         window.GumroadOverlay.refresh();
     }
 
-    // Preloader Animation
     const tl = gsap.timeline();
     tl.to(".progress", { width: "100%", duration: 1, ease: "power3.inOut" })
       .to(".preloader", { y: "-100%", duration: 0.8, ease: "power4.inOut" })
       .from(".hero-kicker, .hero-title, .hero-desc-box, .hero-actions", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 });
 
-    // Smooth Scrolling (Lenis)
     const lenis = new Lenis({ duration: 1.2, smooth: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
@@ -135,13 +154,10 @@ window.addEventListener("load", () => {
     gsap.ticker.add((time)=>{ lenis.raf(time * 1000) });
     gsap.ticker.lagSmoothing(0, 0);
 
-    // Horizontal Scroll Trigger
     setTimeout(() => {
         const horizontalTrack = document.getElementById("horizontal-track");
         if(horizontalTrack) {
-            // Track ki actual width calculate karke parent ko assign karo
             const totalWidth = horizontalTrack.scrollWidth;
-            
             gsap.to(horizontalTrack, {
                 x: () => -(totalWidth - window.innerWidth) + "px",
                 ease: "none",
@@ -158,7 +174,6 @@ window.addEventListener("load", () => {
         ScrollTrigger.refresh();
     }, 200);
 
-    // Bundles fade-in reveal
     const revealElements = document.querySelectorAll('.gs-reveal');
     revealElements.forEach((elem) => {
         gsap.fromTo(elem, 
@@ -188,18 +203,17 @@ document.addEventListener('mouseout', (e) => {
     }
 });
 
-// --- 5. AFFILIATE LOGIC (Redirects to Gumroad) ---
+// --- 5. AFFILIATE LOGIC (Master ID Set) ---
 const form = document.getElementById('licenseForm');
 if(form) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const uniqueID = "TP-" + Math.floor(100000 + Math.random() * 900000);
+        const masterID = "TP-COMM-B2B-2025";
         document.getElementById('nameDisplay').innerText = document.getElementById('userName').value;
-        document.getElementById('idDisplay').innerText = uniqueID;
+        document.getElementById('idDisplay').innerText = masterID;
         document.getElementById('licenseView').style.display = 'block';
         gsap.fromTo('#licenseView', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 });
         
-        // Redirect to Gumroad affiliate page after 3.5s
         setTimeout(() => { 
             window.location.href = "https://trendypixel.gumroad.com/affiliates"; 
         }, 3500);
